@@ -1,0 +1,25 @@
+Directed Study: Seminar in Technical Writing for Computer Science
+4 credits, Fall 2018, Professor Wand
+limited to 10 students.
+
+The goal of this seminar is to help advanced PhD students with writing
+and editing technical documents, such as papers and dissertations.  We
+will cover basics of good English composition, organization of
+sentences, paragraphs, and sections, and other topics.  Our initial
+plan is to follow Norman Ramsey's course on Technical Writing Using
+the Engineering Method, but the exact topics and emphases will depend
+on the students' needs.
+
+We will have a group meeting approximately weekly, and students will
+have 1-on-1 sessions with the instructor as appropriate.
+
+Students should be working on papers or dissertations that we can
+discuss and analyze.
+
+
+References:
+
+http://ecesd.engr.uconn.edu/wp-content/uploads/2017/09/Learning-Technical-Writing-Using-the-Engineering-Method-A-Handbook-for-Groups-Ramsey-Tufts-2016.pdf
+
+Steven Pinker: The Sense of Style: The Thinking Person's Guide to
+Writing in the 21st Century 
