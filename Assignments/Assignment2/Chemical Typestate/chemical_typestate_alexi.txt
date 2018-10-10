@@ -35,3 +35,27 @@ release the lock: if BUSY and release messages are sent to the lock,
 it will send itself a FREE message, thus becoming free. The lock is
 initialized on line 3. In the chemical metaphor, the act of “receiving
 a message” is akin to consuming a molecule.
+
+
+Class rewrite:
+
+
+
+Listing 1 shows the idiomatic implementation and use of a lock in the
+Objective Join Calculus. Lines 1-3create a object called o that
+implements a lock.  The lock has two reaction rules, given on lines 1
+and 2.  The syntax 'A | B > C' is to be read as “messages A and B
+are received, producing C”.
+
+The rule on Line 1 specifies how to
+acquire the lock: if FREE and acquire(r) (where r is the process trying to
+acquire the lock) messages are sent to the lock, it will send a BUSY
+message to itself, thus becoming busy, and reply to r indicating that
+the lock has been acquired.
+
+The second reaction rule shows how to
+release the lock: if BUSY and release messages are sent to the lock,
+it will send itself a FREE message, thus becoming free.
+
+The lock is
+initialized on line 3. 

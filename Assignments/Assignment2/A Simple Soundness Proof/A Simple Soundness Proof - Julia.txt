@@ -1,15 +1,39 @@
-# CS7976 Homework 2
+q# CS7976 Homework 2
 
 by Julia Belyakova
 
-## Paper 1: A Simple Soundness Proof for Dependent Object Types
+## Paper 1: A Simple Soundness Proof for Dependent Object
+   Types
 
 ### Original Paragraph
 
-2016 was an exciting year for those who desire a formalism to understand and reason about the unique features of Scala’s type system. Mechanized soundness results were published for the Dependent Object Types (DOT) calculus and other related calculi [Amin et al. 2016; Amin and Rompf 2017; Rompf and Amin 2016]. These proofs were the culmination of an elusive search that spanned more than ten years. The chief subtleties and paradoxes inherent in DOT and the Scala type system, which made the proof so challenging, were documented along the way [Amin et al. 2012, 2014].
-Since the DOT calculus exhibits such subtle and counterintuitive behaviour, and since the proofs are the result of such a long effort, it is to be expected that the proofs must be complicated.
+2016 was an exciting year for those who desire a formalism
+to understand and reason about the unique features of
+Scala’s type system. Mechanized soundness results were
+published for the Dependent Object Types (DOT) calculus and
+other related calculi [Amin et al. 2016; Amin and Rompf
+2017; Rompf and Amin 2016]. These proofs were the
+culmination of an elusive search that spanned more than ten
+years. The chief subtleties and paradoxes inherent in DOT
+and the Scala type system, which made the proof so
+challenging, were documented along the way [Amin et
+al. 2012, 2014].  Since the DOT calculus exhibits such
+subtle and counterintuitive behaviour, and since the proofs
+are the result of such a long effort, it is to be expected
+that the proofs must be complicated.
 
 ### Rewritten Paragraph
 
-Scala's type system is known to be complex. To facilitate understanding and reasoning about the features of the type system, several formal calculi have been developed, including the Dependent Object Types (DOT). The earliest formalism appeared in 2004?, and DOT was presented in 2012?; however, it was not until 2016 that mechanized soundness results have been published for DOT and related calculi [Amin et al. 2016; Amin and Rompf 2017; Rompf and Amin 2016]. The reason soundness proofs are so challenging, is that calculi such as DOT inherit subtleties and paradoxes of the Scala type system; those were documented along the way [Amin et al. 2012, 2014].
+Scala's type system is known to be complex. To facilitate
+understanding and reasoning about the features of the type
+system, several formal calculi have been developed,
+including the Dependent Object Types (DOT). The earliest
+formalism appeared in 2004?, and DOT was presented in 2012?;
+however, it was not until 2016 that mechanized soundness
+results were published for DOT and related calculi
+[Amin et al. 2016; Amin and Rompf 2017; Rompf and Amin
+2016]. The reason soundness proofs are so challenging is
+that calculi such as DOT inherit subtleties and paradoxes of
+the Scala type system; those were documented along the way
+[Amin et al. 2012, 2014].
 

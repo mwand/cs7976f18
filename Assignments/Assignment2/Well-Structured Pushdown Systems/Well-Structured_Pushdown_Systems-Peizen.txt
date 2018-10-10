@@ -29,3 +29,9 @@ additions between two adjacent stack frames in the push/pop operations.
 Therefore, different from our model WSPDS, PRS is too weak to model
 multi-thread programs.
 ======================================================================
+
+Combining PDSs and VASs is not new.  For example, a process rewrite
+system (PRS) is a PDS with finite control states and a finite vector
+stack alphabet. Reachability for these systems is still decidable, but
+PRSs are too weak to model multi-thread programs.
+
