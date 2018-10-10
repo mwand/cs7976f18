@@ -1,0 +1,31 @@
+# Original
+
+The equivalence under (a given) prefix is a symmetric operation. In
+other words, it captures reversible transformations. Irreversible
+transformations are captured by an instance relation ⊑. Moreover, we
+distinguish a subrelation ⋿ − of ⊑ called _abstraction_. Inverse of
+abstractions are sound relations for 3 but made explicit so as to
+preserve type inference, while inverse of instance relations would, in
+general, be unsound for ≼.
+
+1.3. The abstraction relation
+
+DEFINITION 3. The _abstraction under prefix_...
+
+# My version
+
+Equivalence under (a given) prefix is a symmetric operation and,
+therefore, captures reversible transformations. We consider several
+important irreversible transformations in the next section.
+
+1.3. The abstraction relation
+
+Instance relation ⊑ captures irreversible transformations between
+types. For the purpose of type inference, it proves useful to consider
+a subrelation ⋿ of ⊑ called _abstraction_. The importance of
+abstraction comes from the fact that its inverse is a sound relation
+for ≼ and, therefore, preserves type inference. In contrast, the
+inverse of full instance relation would, in general, be unsound for ≼.
+
+DEFINITION 3. The _abstraction under prefix_...
+

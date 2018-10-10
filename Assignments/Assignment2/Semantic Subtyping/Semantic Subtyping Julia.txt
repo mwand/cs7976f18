@@ -1,0 +1,43 @@
+# CS7976 Homework 2
+
+by Julia Belyakova
+
+## Paper 2: Semantic Subtyping for Imperative Object-Oriented Languages
+
+### Original Paragraph
+
+In comparison with semantic subtyping for immutable records the main
+challenge consists in field annotation, and record mutability. While
+the definition of a semantic model in a purely functional setting is
+rather straightforward, here particular care is required to ensure
+that the model is well-defined, since fields of record values are
+associated with types to specify which values can be stored in them.
+As a consequence, a circularity is introduced since types are
+interpreted in terms of themselves, and this needs to be properly
+managed; in particular, the definitions of the coinductive judgment
+for typing values, and of its negation(which, by duality, is
+inductive), are mutually recursive. These issues propagate to the
+definition of the subtyping rules which involves four mutually
+recursive judgments: the two coinductive judgments for subtyping, and
+type emptiness and their corresponding (inductive) negations.
+
+### Rewritten Paragraph
+
+Record mutability makes it challenging to provide a well-defined
+semantic model of subtyping. Unlike in a purely functional setting
+with immutable records where types can be rather straightforwardly
+interpreted in terms of values, here the problem arises due to field
+type annotations (they specify which values can be stored in
+fields). Namely, since fields of record values are associated with
+types and types are interpreted as sets of values, types got
+interpreted in terms of themselves, and thus a circularity is
+introduced.
+
+The circularity needs to be properly managed; in particular, the
+definitions of the judgment for typing values and of its negation are
+mutually recursive, with the former one being coinductive and the
+latter being inductive. As a consequence, the definition of subtyping
+involves four mutually recursive judgments: two coinductive judgments
+for subtyping, and type emptiness, and their corresponding (inductive)
+negations. 
+

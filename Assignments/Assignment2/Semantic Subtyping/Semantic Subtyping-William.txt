@@ -1,0 +1,57 @@
+** Semantic Subtyping for Imperative Object-Oriented Languages
+
+(I start rewriting from just after the contributions list, because I feel a few paragraphs need to be re-ordered.
+ I've copied the text starting from that list for convenience)
+
+This paper provides two main contributions.
+
+• A coinductive semantic model is defined for record types
+  with read/write field annotations, supporting union, in-
+  tersection, and recursive types; as it is customary in the
+  semantic subtyping approach, such a semantic model nat-
+  urally induces a subtyping relation.
+
+  However, the semantic model used to interpret records
+  with mutable fields substantially deviates from previous
+  models adopted for immutable records [4, 9], and requires
+  more complex definitions and challenging proofs of con-
+  sistency.
+
+  Our model is language independent, in the sense
+  that it supports reasoning on subtyping in the presence of
+  field annotations, without requiring values of the underlying
+  language to support read/write-only fields. In other words,
+  field annotation is a static notion that must not necessarily be
+  reflected at runtime.
+
+• A set of sound and complete rules for such a semantic
+  subtyping relation is defined, and a corresponding algo-
+  rithm is devised to decide subtyping. The algorithm has
+  been implemented in SWI Prolog.
+
+  The difference between the semantic model used to in-
+  terpret mutable records and that adopted for immutable
+  records is reflected in the sets of inequations that can be
+  derived: laws that hold for immutable records [4, 9] are no
+  longer valid for mutable records. Furthermore, in our work
+  new laws have to be introduced because a richer type lan-
+  guage is considered: fields are annotated, and intersection
+  types are introduced. Consequently, the algorithm pre-
+  sented here to decide subtyping significantly departs from
+  previously proposed algorithms for immutable records.
+
+Modeling mutable records and field annotation introduces a challenge
+compared to modeling immutable records.  In a purely functional
+setting, the semantic model is straightforward, but with mutable
+records and field annotations, we must take care to ensure that the
+model is /well-defined/, i.e., not circular, because fields of record
+values are associated with types to specify which values can be stored
+in the field.
+
+This combination can introduce a circularity since types are
+interpreted in terms of themselves.  In particular, the definitions of
+the judgment for typing values and of its negation are mutually
+recursive.  This mutually recursive structure propagate to the
+definition of the subtyping rules, which involves four mutually
+recursive judgments: the two subtyping judgments, the type emptiness
+judgment, and their corresponding negations.

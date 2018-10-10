@@ -1,0 +1,25 @@
+Eye-Tracking Analysis of User Behavior in WWW Search
+
+\subsection{Original text:}
+
+How do users interact with the list of ranked results of WWW search
+engines?  Do they read the abstracts sequentially from top to bottom,
+or do they skip links?  How many of the results do users evaluate
+before clicking on a link or reformulating the search?  The answers to
+these questions will be beneficial in at least three ways.  First,
+they provide the basis for improved interfaces.  Second, they suggest
+more targeted metrics for evaluating the retrieval performance in WWW
+search.  \textbf{And third, they help interpreting implicit feedback
+like clickthrough and reading times for machine learning of improved
+retrieval functions [2].  In particular, better understanding of user
+behavior will allow us to draw more accurate inferences about how
+implicit feedback relates to relative relevance judgments.}
+
+\subsection{Updated version of bold text:}
+
+And lastly, the data collected on implicit feedback such as
+clickthrough and reading times can be fed into machine learning
+algorithms to help discover better retrieval functions.  Specifically,
+given a better understanding of how the users perform searches, we
+could come up with better conclusions about how implicit feedback is
+related to the relevance judgments of the users.

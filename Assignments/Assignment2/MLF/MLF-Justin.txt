@@ -1,0 +1,37 @@
+ML^F
+
+Original excerpt:
+
+The equivalence under (a given) prefix is a symmetric
+operation. In other words, it captures reversible
+transformations. Irreversible transformations are captured by
+an instance relation \sqsubseteq. Moreover, we distinguish a
+subrelation E of \sqsubseteq called abstraction. Inverse of
+abstractions are sound relations for \precurlyeq but made
+explicit so as to preserve type inference, while inverse of
+instance relations would, in general, be unsound for
+\precurlyeq.
+
+
+Rewritten:
+
+Whether two types are equivalent under a particular set of
+type variable bounds is a symmetric relation. In other words,
+converting from one type to an equivalent type is
+reversible. On the other hand, a conversion from a polymorphic
+type to one of its instantiations may be an irreversible
+transformation. Recall our plan to decompose the polymorphic
+instantiation relation \precurlyeq into the composition of
+three relations \exists \sqsubseteq \exists, with
+programmer-provided annotations informing the two uses of
+\exists and inference identifying the \sqsubseteq step.
+
+We first define the "abstraction" relation E, the inverse of \exists,
+in Figure 3. E relates a prefix—setting bounds on type variables—and
+two types. The irreversability of E arises from the A-Hyp rule, which
+relates a type and a variable if the variable is rigidly bound at that
+type. We can replace any type with a name that refers to it. Our
+inference algorithm will not freely do the reverse. That is, revealing
+the polytype represented by some name must be done explicitly via a
+programmer-provided annotation. Otherwise, the polytype can only be
+manipulated by reference to its name.

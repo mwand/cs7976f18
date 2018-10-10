@@ -1,0 +1,46 @@
+A Theory of Effects and Resources
+
+Original excerpt: (page 12)
+
+	In connection to the model theory, direct algebraic
+	descriptions of our calculi are to be obtained in terms of the
+	duploids arising from the effect adjunctions. These direct
+	models are to be put in reflection with the enriched
+	adjunction models, to generalise Führmann’s direct
+	characterisation of \lambda_C-models [21], in the continuity
+	of [39]. In fact, we conjecture that the calculi form initial
+	models, not only for direct duploid models, but also for the
+	adjunction models, provided that the data of values and stacks
+	is appropriately preserved.  In particular, we have observed
+	that the distributivity requirement on presheaves, while
+	needed for the correspondence with CBPV models, and holding in
+	all concrete models we know of, was actually not used for
+	defining the semantic interpretation. However, as syntactic
+	presheaves are naturally distributive, we conjecture that
+	distributivity is required for completeness.
+
+
+Rewritten:
+
+	In future work, we intend to produce algebraic descriptions of
+	our effect-resource calculi, based on duploids. A duploid is
+	roughly a category with two collections of morphisms. For
+	example, one collection may represent call-by-value while the
+	other represents call-by-name. The duploid relevant for
+	modeling a particular calculus can be constructed from the
+	calculus's own effect adjunction. We will then compare these
+	algebraic views with the adjunction models they are derived
+	from. This would generalize prior work by Führmann [21] and
+	Munch-Maccagnoni [39]. We conjecture that these
+	effect-resource calculi are initial objects, so that any
+	suitable duploid model or adjunction model of the same
+	language can be built by using a calculus and then
+	"forgetting" certain details other than values and stack
+	contents.  As a possible example of forgettable detail, we
+	note that we were able to define semantic interpretation of
+	calculi without using distributivity, even though we needed
+	distributivity in order to ensure the calculi are faithful to
+	call-by-push-value models. However, presheaves constructed
+	from program syntax are naturally distributive. So we
+	conjecture that distributivity is required in order for a
+	presheaf-based model to be complete.

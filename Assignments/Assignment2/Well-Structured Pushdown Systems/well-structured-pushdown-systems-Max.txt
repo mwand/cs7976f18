@@ -1,0 +1,24 @@
+# Original Text: First paragraph of Related Work, Page 122
+
+
+Combining PDSs and VASs is not new. Process rewrite system (PRS) [17]
+is a pioneer work on such combination. A PRS is a(n AC) ground term
+rewriting system, consisting of the sequential composition “.”, the
+parallel composition “|| ”, and finitely many constants, which can be
+regarded as a PDS with finite control states and vector stack
+alphabet. The decidability of the reachability between ground terms
+was shown based on the reachability of a VAS. However, a PRS is rather
+weak to model multi-thread programs, since it cannot describe vector
+additions between adjacent stack frames during push/pop operations.
+
+# Rewritten
+
+Some combinations of the features of PDSs and VASs have been studied
+previously. In particular, Process rewrite systems (PRS) are one of
+the first and best-known combinations. Compared to our notion of
+WSPDS, PRSs are a rather weak model of multi-threaded programs. For
+instance, PDSs cannot model vector additions between adjacent stack
+frames during push or pop operations. Because they are relatively
+weak, decidability of reachability for PDSs is reducable to that of
+VASs, whereas we need a new proof altogether for WSPDs.
+

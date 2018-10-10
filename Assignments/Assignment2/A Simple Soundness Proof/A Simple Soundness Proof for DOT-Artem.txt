@@ -1,0 +1,117 @@
+# Passage 1
+
+## Original
+
+2016 was an exciting year for those who desire a formalism to
+understand and reason about the unique features of Scala’s type
+system. Mechanized soundness results were published for the Dependent
+Object Types (DOT) calculus and other related calculi [Amin et
+al. 2016; Amin and Rompf 2017; Rompf and Amin 2016]. These proofs were
+the culmination of an elusive search that spanned more than ten
+years. The chief subtleties and paradoxes inherent in DOT and the
+Scala type system, which made the proof so challenging, were
+documented along the way [Amin et al.  2012, 2014].
+
+## My version
+
+A series of exciting results about the unique features of Scala’s type
+system appeared in 2016.  Dependent Object Types (DOT) and other
+related calculi formalizing Scala received the mechanized soundness
+results [Amin et al. 2016; Amin and Rompf 2017; Rompf and Amin 2016].
+These proofs culminated a ten-year effort. Amin et al. [2012, 2014]
+documented along the way the chief subtleties and paradoxes inherent
+in DOT and the Scala type system, which made the proof so challenging.
+
+# Passage 2
+
+## Original
+
+The type selection subtyping rules (<:-Sel) and (Sel-<:) enable users
+to define a type system with a custom subtyping lattice. If a program
+defines a function λ(x : {A: S..U }).t, then t is typed in a context
+in which S is considered a subtype of U , because S <: x .A <: U . The
+soundness proof must ensure that such a user-defined subtyping lattice
+does not cause any harm, i.e., cannot cause a violation of type
+soundness of the overall calculus.
+
+Let S be the object type {a : ⊤} and U be the function type ∀(z :
+⊤)⊤. Then the following is a valid and well-typed DOT term:
+
+λ(x : {A: S..U }).let y = ν (y : S ) a = y.a in y y
+
+How is this possible? The inner term y y is a function application
+applying y to itself, but y is bound by the let to an object, not a
+function. How can y appear in a function application when it is not a
+function? This is possible because y has the object type S, and in the
+body of the lambda, we have the subtyping chain S <: x .A <: U . The
+declaration of the lambda asserts that x .A is a supertype of S and a
+subtype of U , and therefore introduces the new custom subtyping
+relationship S <: U .  Inside the body of the lambda, the object type
+S is a subtype of the function type U , so since the object y has type
+S, it also has the function type U . The function application of
+object y to itself is therefore well-typed in this context.
+
+This is crazy, the reader may be thinking. Indeed, in an environment
+in which subtyping can be arbitrarily redefined, types cannot be
+trusted. In particular, we cannot conclude from the fact that y has
+the function type S that it is indeed a function; actually, it is an
+object. The seemingly obvious fix is to require S to be a subtype of U
+when the parameter x of the lambda is declared to have type {A: S..U
+}. But as we will discuss in Section 5, this seemingly obvious fix
+does not work, and the struggle to try to make it work has caused much
+of the difficulty in the ten-year struggle for a DOT soundness proof.
+
+How can DOT be sound then, when it is so crazy? After all, the
+function application y y is well-typed but its evaluation gets stuck,
+because y is not a function, so how can DOT be sound? The key is that
+the DOT semantics is call-by-value. In order to invoke the body of the
+lambda, one must provide an argument value to pass for the parameter
+x. This value must contain a type assigned to A that is both a
+supertype of U and a subtype of S. If no such type exists, then no
+such argument value can exist, so the lambda cannot be called, so its
+body containing the crazy application y y cannot ever be
+executed. Therefore, this term is not a counterexample to the
+soundness of the DOT type system.
+
+## My version
+
+The type selection subtyping rules (<:-Sel) and (Sel-<:) enable users
+to define a type system with a custom subtyping lattice. If a program
+defines a function λ(x : {A: S..U }).t, then t is typed in a context
+in which S is considered a subtype of U because of transitivity: S <:
+x.A <: U (both sides follow from the corresponding Sel-rules). The
+soundness proof must ensure that such a user-defined subtyping lattice
+does not cause any harm, i.e., cannot cause a violation of type
+soundness of the overall calculus. The following example shows this
+seemingly problematic.
+
+Let S be the object type {a : ⊤} and U be the function type ∀(z :
+⊤)⊤. Then the following is a valid and well-typed DOT term:
+
+    λ(x : {A: S..U }).let y = ν (y : S ) a = y.a in y y
+
+The innermost term y y is a self-application of y, but y is bound by
+the let to an object, not a function. This is well-typed because y's
+declared type S is a subtype of a function type U by the means of
+subtyping chain S <: x.A <: U, as discussed above.
+
+Having a well-typed application of object clearly leads to
+unsoundness, the reader might think.  Generally, in an environment
+arbitrarily redefining the subtyping relation, types cannot be
+trusted.  Here, the function application y y is well-typed but its
+evaluation gets stuck, because y is not a function, so how can DOT be
+sound?
+
+A seemingly obvious fix to the problem requiring S to be a subtype of
+U when the parameter x is declared does not work, as we discuss in
+Section 5. Trying to make this fix work has caused much of the
+difficulty in the ten-year quest for a DOT soundness proof. Instead,
+the key insight of the proof is to leverage call-by-value semantics of
+DOT. In order to invoke the body of the lambda, one must provide an
+argument value to pass for the parameter x. This value must contain a
+type assigned to A that is both a supertype of U and a subtype of
+S. If no such type exists, then no such argument value can exist, so
+the lambda cannot be called, so its body containing the problematic
+application y y cannot ever be executed. Therefore, this term is not a
+counterexample to the soundness of the DOT type system.
+

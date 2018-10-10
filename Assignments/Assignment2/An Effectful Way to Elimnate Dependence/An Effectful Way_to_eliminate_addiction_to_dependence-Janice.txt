@@ -1,0 +1,30 @@
+﻿An effectful way to eliminate addiction to dependence
+
+
+Original copy of Abstract: Abstract—We define a monadic translation of
+type theory, called weaning translation, that allows for a large range
+of effects in dependent type theory—such as exceptions,
+non-termination, non-determinism or writing operation. Through the
+light of a call-by-push-value decomposition, we explain why the
+traditional approach fails with type dependency and justify our
+approach. Crucially, the construction requires that the universe of
+algebras of the monad forms itself an algebra. The weaning translation
+applies to a version of the Calculus of Inductive Constructions (CIC)
+with a restricted version of dependent elimination. Finally, we show
+how to recover a translation of full CIC by mixing parametricity
+techniques with the weaning translation. This provides the first
+effectful version of CIC.
+
+
+Edit: The gap between type theories such as CIC and mainstream
+programming languages comes to a large extend from the absence of
+effects in type theories, because of its complex interaction with
+dependency. The traditional approach fails with type dependency
+because [a, b, c.], through the light of a call-by-push-value
+decomposition. We contribute the definition of weaning translation,
+the first monadic translation of type theory, which allows for a a
+range of effects in dependent type theory. The weaning translation
+applies to a version of the Calculus of Inductive Constructions (CIC)
+with a restricted version of dependent elimination. Finally, we show
+how to recover a translation of full CIC by mixing parametricity
+techniques with the weaning translation.

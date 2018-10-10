@@ -1,0 +1,29 @@
+Dependent Types for Program Termination Verification
+
+Old Passage:
+
+We can simply transform MLZPS into a language MLZ by erasing all
+syntax related to type index expressions in MLZPS. Then MLZ basically
+extends simply typed lambda-calculus with recursion. Let |e| be the
+erasure of expression e. We have el reducing to e2 in MLZPS implies
+|e1| reducing to |e2| in MLZ. Therefore, if e is terminating in MLZPS
+then |e| is terminating in MLZ. This is a crucial point since the
+evaluation of a program in MLZPS is (most likely) done through the
+evaluation of its erasure in MLZ. Please find more details on this
+issue in [18, 14].  
+
+->
+
+New Passage:
+
+Evaluating programs in MLZPS is (most likely) done by evaluating their
+erasure in a new language called MLZ, which we obtain by erasing all
+syntax related to type index expressions in MLZPS. The following
+result relates the two languages: 
+
+Theorem (Should Really be a Theorem): If program e terminates in
+MLZPS, then its erasure |e| terminates in MLZ. 
+
+The proof relies on the fact that reduction in MLZPS implies reduction
+in MLZ. The full proof can be found in “more complete versions”
+[14. 18]. 

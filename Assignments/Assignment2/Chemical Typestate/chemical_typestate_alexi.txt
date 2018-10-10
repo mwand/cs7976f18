@@ -1,0 +1,37 @@
+The Chemical Approach to Typestate-Oriented Programming
+
+Old passage:
+
+Listing 1 shows the idiomatic implementation and use of a lock in the
+Objective Join Calculus. The definition on lines 1-2 creates a new
+object o with two reaction rules, separated by or. The symbol >
+separates the pattern from the body of each rule, while | combines
+messages into complex molecules. The first reaction “fires” if a FREE
+message and an acquire message (with argument r) are sent to o: the
+two messages are consumed and those on the right hand side of > are
+produced. In this case, the argument r of acquire is a reference to
+another object representing the process that wants to acquire the
+lock. Hence the effect of triggering the first reaction is that a BUSY
+message is sent to o (in jargon, to “self”) and a reply message is
+sent to r to notify the receiver that the lock has been successfully
+acquired. The second reaction specifies that the object can also
+consume a molecule consisting of a BUSY message and a release
+message. The reaction just sends a FREE message to o. The lock is
+initialized on line 3, by sending a FREE message to o.
+
+->
+
+New passage:
+
+Listing 1 shows the idiomatic implementation and use of a lock in the
+Objective Join Calculus. A | B > C is to be read as “messages A and B
+are received, producing C”. On lines 1-2, a new lock is created with
+two possible reaction rules. The first rule specifies how to acquire
+the lock: if FREE and acquire(r) (where r is the process trying to
+acquire the lock) messages are sent to the lock, it will send a BUSY
+message to itself, thus becoming busy, and reply to r indicating that
+the lock has been acquired. The second reaction rule shows how to
+release the lock: if BUSY and release messages are sent to the lock,
+it will send itself a FREE message, thus becoming free. The lock is
+initialized on line 3. In the chemical metaphor, the act of “receiving
+a message” is akin to consuming a molecule.

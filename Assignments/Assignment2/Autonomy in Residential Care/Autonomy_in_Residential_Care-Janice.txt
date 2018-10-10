@@ -1,0 +1,61 @@
+﻿Autonomy in Residential Care:
+
+
+Original copy of Introduction:
+
+In the United States, there is a
+growing proportion of older adults living with one or more chronic
+health conditions [1]. Individuals with a chronic health condition may
+require assistance managing their condition in the home environment
+and may experience functional limitations requiring assistance with
+activities of daily living [2]. Residential care communities such as
+assisted living facilities provide services that allow individuals
+with care needs to continue to live independently, yet the transition
+from the home environment to a residential care community may be
+associated with loss of autonomy [3].
+
+
+Given that reduced autonomy among older adults is associated with
+negative health outcomes and decreased quality of life [4], services
+designed to promote independent living among individuals with a
+chronic health condition ought to incorporate features to preserve and
+promote consumer autonomy. The optimal design of complex personal
+health services such as these demands collaboration between multiple
+disciplines, including service design, personal health informatics,
+and the health sciences. Stickdorn and Schneider described “service
+design thinking” as a mode of interdisciplinary thinking that
+integrates the perspectives of different disciplines [5]. However,
+interdisciplinary research collaboration presents unique challenges,
+including divergent terminology, theoretical frameworks, and methods
+of inquiry [6].
+
+
+Choi and Pak described eight strategies to enhance interdisciplinary
+collaboration, represented by the acronym TEAMWORK, which stands for
+team, enthusiasm, accessibility, motivation, workplace, objectives,
+role, and kinship [7]. In addition, Witteman and Stahl [8] advocated
+the use of a five-step ‘deep dive’ [9] to enhance interdisciplinary
+collaboration. The deep dive entails (1) conduct of secondary research
+to identify gaps in current knowledge and understand the scope of the
+problem; (2) conduct of primary research to observe current practices
+and ascertain users’ perspectives; (3) visualization of proposed
+designs; (4) development and testing of prototypes; and (5)
+implementation of the newly designed service [8].
+
+
+Despite the existence of frameworks meant to facilitate
+interdisciplinary collaboration [7], reports describing
+interdisciplinary research collaborations are limited [10].  Thus, in
+this paper, we describe the strategies proposed by Choi and Pak [7]
+and Witteman and Stahl [8] as they relate to our experiences
+assembling and working as an interdisciplinary team.
+
+
+
+
+Edit: At the end of the introduction, add a few sentences of
+contribution: Built upon the prior TEAMWORK framework and ‘deep dive’
+method, we contribute strategies drawing knowledge from a variety of
+disciplines, using our team’s efforts to frame the problem of autonomy
+among individuals with chronic health conditions who live in
+residential care settings as a case study.
