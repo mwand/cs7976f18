@@ -1,0 +1,291 @@
+
+ Abstract
+================================================================================
+
+Interdisciplinary collaboration is important for conducting research in such 
+complex fields as personal health services, yet it is associated with unique 
+challenges, and reports on such collaborations are limited. In this paper, we 
+describe our experience with the two particular frameworks for 
+interdisciplinary collaboration, using the problem of autonomy in residential 
+care communities as a case study. These communities allow individuals with 
+chronic health conditions to live independently, but transition to a community 
+may be associated with loss of autonomy, which negatively impacts health of its 
+residents.
+
+ 1 Introduction
+================================================================================
+
+Interdisciplinary collaboration is important for conducting research in such 
+complex fields as personal health services. For example, consider residential 
+care communities such as assisted living facilities. They allow people with 
+chronic health conditions [1] to continue to live independently, as in the home 
+environment such individuals would require assistance with managing their 
+condition and daily life activities [2]. However, transition to a residential 
+facility might be perceived as loss of autonomy. Given that reduced autonomy 
+among older adults negatively impacts health and decreases quality of life [4], 
+residential care services ought to preserve and promote consumer autonomy. To 
+design the optimal service, collaboration between multiple disciplines is 
+needed, including service design, personal health informatics, and the health 
+sciences. However, it presents unique challenges, including divergent 
+terminology, theoretical frameworks, and methods of inquiry [6].
+
+There have been several studies devoted to methodology of interdisciplinary 
+research collaboration, but reports describing such collaborations are limited 
+[10]. In this paper we discuss our experience of applying the two frameworks 
+for interdisciplinary collaboration to the problem of autonomy in residential 
+care facilities. The first framework by Choi and Pak [7] is represented by the 
+acronym TEAMWORK, which stands for team, enthusiasm, accessibility, motivation, 
+workplace, objectives, role, and kinship. The second work we apply, by Witteman 
+and Stahl [8], advocates the use of a five-step ‘deep dive’ [9] to enhance 
+collaboration.
+
+ 2 TEAMWORK and "Deep Dive" Applied
+================================================================================
+
+Our interdisciplinary research project was devoted to autonomy in the 
+residential care setting. The purpose was to generate a conceptual model of 
+autonomy that would facilitate the development of an autonomy-promoting service 
+prototype.
+
+In this section we describe how we applied the two frameworks, TEAMWORK and 
+"Deep Dive", to our project. In particular, we discuss our experience 
+assembling a team of researchers from the fields of service design, nursing, 
+marketing, and computer science, as well as the strategies we employed to 
+integrate knowledge from the design, human factors, and nursing literature.
+
+2.1 TEAMWORK: Assembling a Team
+--------------------------------------------------------------------------------
+
+**Team.** Generally, a research team, including interdisciplinary one, consists 
+of one or several leaders and a number of members. The TEAMWORK framework 
+suggests selecting team leaders with communication skills and familiarity in 
+the involved disciplines. At the same time, the team members need to be 
+flexible, and agree that the study is best examined by the means of multiple 
+disciplines. Following this recipe, we ended up with an interdisciplinary team 
+described in Figure 0. In our view, each of the involved disciplines 
+contributes a unique perspective to the understanding of autonomy.
+
+| Label | Title                | Affilation                                         | Role                      |
+|-------|----------------------|- --------------------------------------------------|---------------------------|
+| PI    | Assistant Professor  | College of Arts, Media, and Design                 | Principal Investigator    |
+| A1    | Dean                 | School of Nursing                                  | Advisor                   |
+| A2    | Tenured Professor    | School of Business                                 | Advisor                   |
+| CPI   | Assistant Professor  | School of Nursing                                  | Co-Principal Investigator |
+| S1    | Phd Student          | School of Nursing                                  | Member                    |
+| S2    | Phd Student          | Joint College of Computer and Information Science
+                                 and the Bouvé College of Health Sciences           | Member                    |
+| V1    | Visiting Scholar     | School of Design (Tongji University in China)      | Member                    |
+| U1    | Senior Undergraduate | College of Arts, Media, and Design                 | Member                    |
+
+Figure 0. Our Interdisciplinary Team
+
+
+**Enthusiasm.** A research team will succeed in its endeavor if the team 
+members are interested in the project topic and when the success of the project 
+can advance their careers~[7]. Our interdisciplinary team is comprised 
+primarily of early career investigators who benefit from the guidance of senior 
+faculty while also gaining research experience. In addition, the topic under 
+study is relevant to each team member’s individual research interests: autonomy 
+is a phenomenon of interest to designers, nurses, and marketing professionals 
+alike, each of whom aim to meet the needs of individuals.
+
+Our enthusiasm about the project encountered one of the barriers described by 
+Choi and Pak [7]. Specifically, guidelines for multiple authorship vary across 
+disciplines. In nursing and the health sciences, a reader typically expects the 
+first author to make the most significant contribution to a scholarly work, and 
+the last author is increasingly regarded as the “senior” author who oversaw the 
+project. In other disciplines, such as design and marketing, authors are simply 
+listed in descending order of contribution.
+
+Similarly, differences in tenure decisions exist across disciplines. In nursing 
+and the health sciences, publication in a journal is valued more highly than 
+presentation at a conference, yet the opposite is true in design and computer 
+science most of the time.
+
+These differences posed a challenge to our team as we sought to disseminate our 
+research findings most effectively while also assisting our team members to 
+meet their career objectives.
+
+**Accessibility.** The third strategy of the TEAMWORK framework is to ensure 
+accessibility of the team members. The importance of working together in a 
+physical setting is known to promote interdisciplinary work [7]. However, 
+various duties often make it difficult for team members to connect in person. 
+We overcame this barrier by scheduling a weekly team meeting and using online 
+platforms such as Skype and Google Hangouts to connect with distant team 
+members. As suggested by Choi and Pak [7], Internet and email can also be 
+useful. 
+
+In addition to the physical and virtual proximity of team members, avoiding 
+language problems is another important factor to enhance accessibility [7]. We 
+used shared language and avoided disciplinary-specific jargon to the extent 
+possible. Reading relevant literature from disciplines outside of our own 
+improved our understanding of one another’s specific disciplinary perspective 
+and their domain languages. 
+ 
+**Motivation.** The next strategy outlined in the TEAMWORK framework is to 
+ensure team members stay motivated to participate in the project. The potential 
+for the project to answer a challenging research question may serve as its own 
+motivation, but additional incentives, such as solid funding, may be necessary 
+[7]. Our project received financial support in the form of a 15-month grant, 
+which allowed the team leaders to sponsor student team members, fund data 
+collection, and purchase the proper software to analyze the data.
+
+**Workplace.** Choi and Pak [7] emphasized the importance of institutional 
+support for interdisciplinary collaboration. Our team benefited from affilation 
+with a university that values interdisciplinary collaboration, offering 
+numerous interdisciplinary majors and minors, and providing space for 
+interdisciplinary team meetings. The support of tenured faculty from several 
+disciplines helped to recruit a diverse team and provided its members with the 
+opportunity to collaborate outside their respective schools and colleges. 
+
+**Objectives.** Development of a common goal and shared vision is another 
+important element to promote interdisciplinary work. Discipline conflicts may 
+arise when team members have conflicting ideas. For example, researchers from 
+health sciences have a preference for qualitative methods based on theories, 
+while designers have a preference for concept models based on brainstorming. In 
+our case, we mixed the preferences by conducting a qualitative research first, 
+followed by the concept models from brainstorming exercises for several 
+sessions. We proposed a theory-based concept model based on our qualitative 
+research results. 
+
+**Role.** The TEAMWORK framework advocates negotiating clear roles and rotating 
+responsibilities among team members to reduce role overload. Our approach 
+involved identifying three key phases of our project: (1) secondary research; 
+(2) primary research; and (3) service design. All team members engaged in 
+secondary research, which allowed each team member to gain a broad 
+understanding of elder autonomy. The primary research was done by team members 
+from the School of Nursing and College of Health Sciences using qualitative 
+research methods Finally, representatives of the School of Business and the 
+College of Arts, Media, and Design were primarily responsible for the service 
+design phase.
+
+**Kinship.** Last but not least, it is important to facilitate open 
+communication between team members and to provide constructive feedback on 
+their performance. Lack of communication may hinder the working relationship; 
+similarly, unequal power between disciplines may result in group rivalry. We 
+engaged in weekly team meetings where we discussed and provided feedback on 
+both the research strategy and written artifacts. Given that our leadership 
+team itself was interdisciplinary, power between disciplines was perceived as 
+equal. In addition we divided workload according to each team member’s area of 
+expertise. This ensured each team member was recognized for his or her 
+strengths.
+
+
+2.2 Framing the Problem: Conducting a Deep Dive 
+--------------------------------------------------------------------------------
+
+The Deep-Dive technique [9] was originally developed by IDEO, the leading 
+industrial design company. The technique has been widely applied in 
+interdisciplinary research to enhance collaboration and participation. The deep 
+dive entails (1) conducting secondary research to identify gaps in current 
+knowledge and understand the scope of the problem; (2) visualizing theory-based 
+conceptual models; (3) conducting user research to observe current practices 
+and ascertain users’ perspectives; (4) prototyping, designing, developing, and 
+user testing; and (5) implementing the newly designed service [8]. We adapted 
+the ‘deep dive’ technique [8] in this work to improve the performance of our 
+team across the fields. Since this project is in progress, we will focus only 
+on the first three phases in this paper. 
+
+
+2.2.1 Identify Research Problems 
+
+We conducted secondary research from the design, nursing, and human-computer 
+interaction literature to identify and frame the problem of autonomy among 
+older adults with chronic illness who live in residential care facilities. From 
+a nursing perspective, there are several factors that determine autonomy in 
+this population: the degree to which individuals (1) retain control over their 
+decisions [13], (2) have privacy in residential care [14], and (3) are able to 
+maintain existing relationships with their friends, families, and neighbors 
+[15]. From a design perspective, design can influence an individual’s autonomy. 
+For example, Friedman’s work [16] discussed how hardware design can either 
+hinder or improve a person’s technology control. In the field of human-computer 
+interaction, four spheres of autonomy [17] are known: design of technology, 
+daily activities, personalized software design, and psychological development. 
+Overall there have been few investigations into how to enhance autonomy through 
+design. Therefore, our interdisciplinary research team aimed to identify this 
+gap and understand the scope of the problem.
+
+2.2.2 Visualize Theory-Based Conceptual Models
+
+To visualize a conceptual model of autonomy we had to perform two steps: first, 
+select relevant theories to base upon, and second, incorporate knowledge from 
+those theories into one picture. We picked the following theories: 
+social-ecological models, design theories, and transformative service research 
+(TSR). The first one is important in the field of nursing and health sciences; 
+it focuses on the nature of people’s transactions with their physical and 
+sociocultural environments [5]. The third one, TSR, is a relatively new 
+research area that focuses on services and well-being; it integrates "consumer 
+and service research" [19].
+
+<Fig 1>
+
+To perform the second step, i.e. generate visual conceptual models guiding 
+the user research phase, our team conducted a series of brainstorming 
+workshops. First, each team member extracted key terms from the literature 
+independently and wrote down the terms on sticky notes (Fig. 1); this helped us 
+to converge on common ideas and concepts and move thoughts around. Next, we 
+used the affinity diagram process [18] to identify themes by grouping common 
+notes. This led to the development of the final conceptual model of autonomy.
+
+2.2.3 Conduct User Research
+
+User research comprised qualitative and quantitative parts. Qualitative 
+research included semi-structured interviews, field observations at 
+participants’ homes, and journaling daily routines of participants. This part 
+helped us to understand what determines autonomy among elder residents of care 
+facilities. Quantitative assessments included the Rapid Estimate of Health 
+Literacy in Medicine – Short Form [20] and the Allen Cognitive Level Screen 
+(ACLS) [21]. The ACLS is used in nursing research and clinical practice to 
+assess functional cognition -- an individual’s capacity to accomplish everyday 
+activities in community living environments [22]. Ethical approval was granted 
+by the Institutional Review Board (IRB) at our university. All participants had 
+signed consent forms prior to data collection. Eligible participants were (a) 
+aged 65 years and older; (b) living with at least one chronic health condition; 
+(c) residents of a residential care community; and (d) able to communicate in 
+verbal and written English.
+
+In the next phase of our study, we will analyze qualitative data through 
+directed content analysis and will summarize quantitative data through 
+descriptive statistics. The results of these analyses will guide the prototype 
+design phase of our study. User testing and evaluation are left for future 
+work.
+
+2.3 Interdisciplinary Research Evaluation
+--------------------------------------------------------------------------------
+
+In the fields of nursing and the health sciences, effectiveness is an essential 
+measure of intervention research [23]. We assess effectiveness by means of 
+feasibility and acceptability testing. In particular, we determine the extent 
+to which the service prototype increases autonomy among the said elders. In 
+contrast, designers explore a problem by "thinking as making" and "research 
+through design" as they interact with users. The final aim of design research 
+is not only a usable solution but a desirable one.
+
+ 3 Discussion
+================================================================================
+
+Our experience assembling an interdisciplinary research team illustrates the 
+utility of the TEAMWORK framework. We found several recommendations to be 
+particularly useful. (1) Early discussions about authorship conventions and 
+team members’ goals set up friendly environment. (2) Frequent communication via 
+weekly meetings improved members’ accessibility and motivation. (3) 
+Institutional support facilitated the recruitment of team members and provided 
+an environment conducive to collaboration.
+
+The five-step “deep dive” guides integration of knowledge from several 
+disciplines. We began by conducting secondary research --- a procedure that 
+allowed us to identify gaps in knowledge and better understand how elder 
+autonomy is conceptualized across disciplines. Secondary research, 
+brainstorming, and visualization allowed us to generate a conceptual model that 
+guided primary data collection and analysis. In the future, we will apply our 
+findings to the development and testing of a service prototype.
+
+ 4 Conclusion
+================================================================================
+
+In this paper, we described the challenges and benefits of interdisciplinary 
+research, and reported on our experience of applying the two frameworks to 
+promote it. As a case study, we used the research problem of autonomy among 
+elders living with a chronic health condition in the residential care setting. 
+We hope our experiences can empower researchers to create more 
+interdisciplinary collaborations.

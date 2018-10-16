@@ -1,0 +1,255 @@
+Abstract
+
+We present a case study on the effectiveness of interdisciplinary
+collaboration strategies on preserving the autonomy of patients in
+residential care communities.
+
+
+1. Introduction
+
+Residential care communities can assist older adult living with
+chronic health conditions, but, unfortunately, can result in loss of
+autonomy. In the United States, there is a growing proportion of older
+adults living with one or more chronic health conditions [1], who may
+require assistance with activities of daily life [2]. Residential care
+communities provide services that allow them to continue to live
+independently, yet the transition from the home environment to a
+residential care community may be associated with loss of autonomy
+[3].
+
+Preserving residents' autonomy demands collaboration between multiple
+disciplines, but interdisciplinary collaboration is challenging and
+not well studied. Stickdorn and Schneider described “service design
+thinking” as a way to integrate the perspectives of different
+disciplines [5]. However, interdisciplinary research collaboration
+presents unique challenges, including divergent terminology,
+theoretical frameworks, and methods of inquiry [6]. Choi and Pak
+described eight strategies to enhance interdisciplinary collaboration,
+represented by the acronym TEAMWORK [7]. In addition, Witteman and
+Stahl [8] advocated the use of a five-step "Deep Dive" [9] to enhance
+interdisciplinary collaboration. Despite the existence of frameworks
+meant to facilitate interdisciplinary collaboration [7], reports
+describing interdisciplinary research collaborations are limited [10].
+
+In this paper, we report a case study of our experiences assembling
+and working as an interdisciplinary team using the strategies proposed
+by Choi and Pak [7] and Witteman and Stahl [8].
+
+2. Strategies to Facilitate Interdisciplinary Research: A Case Study
+
+Our goal is to produce a conceptual model of residential care patient
+autonomy to guide development of a service prototype for residential
+elder care facilities. We assembled an interdisciplinary team
+including researchers in nursing, business, health sciences, design,
+and computer science. We first describe our experiences according to
+Choi and Pak's eight-part TEAMWORK framework [7] to assembly an
+interdisciplinary team, and then describe our experience with Witteman
+and Stahl's five "Deep Dive" strategies [8] to integrating the teams
+knowledge of different disciplines.
+
+
+2.1. TEAMWORK framework
+
+Choi and Pak use the acronym TEAMWORK, which stands for Team,
+Enthusiasm, Accessibility, Motivation Workplace, Objectives, Role,
+Kinship. We describe each of these aspects of the TEAMWORK framework,
+how we followed them.
+
+	Team: Select team leaders familiar enough with involved
+disciplines.  The project lead, a professor from the College of Arts,
+Media and Design, started this project and contacted the Dean of the
+School of Nursing and a tenured professor in the School of Business
+for advice on which professors had background and research interests
+related to any of the disciplines which inform service design. The
+project lead formed a partnership with the professor from the School
+of Nursing, establishing an interdisciplinary leadership team. The
+leadership team then recruited an interdisciplinary team of
+researchers: one from the School of Nursing; one from the joint
+program of the College of Computer and Information Science and the
+Bouvé College of Health Sciences; one from the School of Design at
+Tongji University in China; one from the College of Arts, Media and
+Design. Each researcher brought a unique perspective to autonomy among
+residential care patient autonomy.
+
+	Enthusiasm: Foster a personal commitment to the project.  One
+barrier to enthusiasm described by Choi and Pak relates to the effect
+a project has on investigators' careers. This effect could
+particularly impact early career investigate, who made up most of our
+team. For example, the publication strategy could be important to our
+team, and varies across disciplines. In nursing and the health
+sciences, a reputable journal is a more prestigious venue than a
+conference, whereas the opposite is true in design and computer
+science. This led to challenges deciding how to disseminate our
+findings while furthering members' career goals.
+
+	Accessibility: Work together, whether in a physical or virtual
+setting.  For an international and interdisciplinary team, varying
+schedules make regular meetings difficult. We overcame this barrier by
+scheduling a weekly team meeting and using online platforms such as
+Skype and Google Hangouts to connect with team members who could not
+be physically present.
+
+Another barrier was disciplinary-specific language and jargon. We used
+a shared language and avoided disciplinary-specific jargon when
+possible. We also read relevant journal articles from disciplines
+outside of our own improved our understanding of each other's
+disciplinary perspective, research methods, and terminology.
+
+	Motivation: Ensure team members stay motivated.  Insufficient
+time and funding are often barriers to motivation. Our project was
+supported by a 15-month grant which covered student team members, data
+collection, and data analysis software. However, we expected that
+insufficient time would still impede our progress. So we had each team
+member estimate their available weekly hours at the beginning of the
+project, accounting for other unrelated duties. Labor-intensive phases
+could then be scheduled for when team members were most likely to be
+available.
+
+	Workplace: Have institutional support for interdisciplinary
+work.  We benefitted from affiliation with a university that supports
+interdisciplinary collaboration, such as by providing dedicated space
+for interdisciplinary team meetings. Support from faculty from several
+disciplines facilitated recruitment of team members with varied
+backgrounds.
+
+	Objectives: Develop a shared vision for the project.  In order
+to head off conflicting ideas of the project's goals, we met early on
+to identify concepts relevant to elder autonomy from our disciplines'
+perspectives. This allowed us to find both common areas of concern and
+opportunities for each discipline to improve our understanding of the
+problem.
+
+	Role: Give team members clear roles.  We identified three
+phases of our project: (1) secondary research; (2) primary research;
+and (3) service design. All team members engaged in secondary
+research, thereby gaining an understanding of elder autonomy from a
+variety of perspectives. Team members from the School of Nursing and
+College of Health Sciences, who were familiar with relevant
+qualitative research methods, devised the primary research plan. Team
+members from the School of Business and the College of Arts, Media,
+and Design were primarily responsible for service design.
+
+	Kinship: Promote open communication and constructive feedback
+within the team.  Power imbalance and poor communication are bad for
+team cohesion. Since our leadership team was interdisciplinary, the
+power balance between disciplines within the team was perceived as
+equal. Our weekly meetings were an opportunity for timely feedback on
+in-progress work.
+
+
+2.2. Deep Dive strategies
+
+The Deep Dive technique for service design [9] was originally
+developed by IDEO, an industrial design company, and has been widely
+applied in interdisciplinary research. The Deep Dive entails (1)
+secondary research to find gaps in current knowledge and specify the
+scope of the problem; (2) visualizing conceptual models; (3)
+conducting user research to observe current practices; (4)
+prototyping, designing, developing, and user testing; and (5)
+implementation of the newly designed service. We adapted this
+technique [8] to improve the effectiveness of our interdisciplinary
+team. Since this project is in progress, we do not describe the last
+two phases, which we have not reached yet.
+
+
+2.2.1 Identify Research Problems
+
+We conducted secondary research from design, nursing, and
+human-computer interaction literature to frame the problem of
+maintaining the autonomy of older adults with chronic illness in
+residential care facilities. From a nursing perspective, goals include
+maintaining individuals' control over their decisions [13], their
+privacy in residential care [14], and their existing relationships
+with friends, families, and neighbors [15]. Prior design research has
+explored factors that can influence autonomy, such as hardware design
+[16]. Human-computer interaction research has proposed four spheres of
+autonomy: autonomy in technological design, assistive technologies,
+addressing individual needs, and psychological development. There have
+been little investigation specifically targeted at enhancing autonomy
+of elders with chronic health conditions, so our team aimed to address
+this gap.
+
+
+2.2.2 Visualize Theory-based Conceptual Models
+
+We held a series of brainstorming meetings to generate conceptual
+models to guide our user research. First, each team member
+independently wrote a list of key terms they found in the
+literature. A board of sticky notes assisted us in converging on
+common ideas and concepts. We used the affinity diagram process [18]
+to group common notes into themes. Our resulting themes included
+quality of life, communication, social identity, transition, care
+experience, emotional autonomy, and drivers of autonomy. The
+conceptual model we developed includes theoretical areas such as
+ecological models and transformative service research.
+
+Ecological models focus on people's transactions with their physical
+and sociocultural environments [5], integrating intrapersonal,
+interpersonal, and community-level theories. Transformative Service
+Research is a newer research area, focused on "changes and
+improvements in the well-being of … individuals (consumers and
+employees), communities, and the ecosystem" [19]. In residential care,
+the two main interacting groups of people who must be considered are
+consumers (patients and their families) and service providers (care
+professionals and their support staff).
+
+2.2.3 Conduct User Research
+
+We conducted qualitative research to understand what determines
+autonomy for elderly residential care patients. This human-centered
+research method includes semi-structured interviews, observations at
+participants' homes, and journal entries written by participants about
+their daily routines. Quantitative assessments include the Allen
+Cognitive Level Screen [21], which is used in nursing research and
+clinical practice to assess capacity to accomplish everyday activities
+[22]. Ethical approval was granted by our university's Institutional
+Review Board. All participants had signed consent forms prior to data
+collection. Eligible participants were (a) aged 65 years and older;
+(b) living with at least one chronic health condition; (c) residents
+of a residential care community; and (d) able to communicate in verbal
+and written English.
+
+In the next phase, we plan to summarize our quantitative data through
+descriptive statistics and use the results to guide the prototype
+design phase of our study. User testing and evaluation are left for
+future work.
+
+3. Discussion
+
+Our experience illustrates the utility of the TEAMWORK framework [7]
+for anticipating and overcoming barriers to interdisciplinary
+collaboration. In particular, we ensured enthusiasm with early
+discussions about authorship conventions and team members’ goals. We
+also ensured accessibility via weekly meetings, whether in person or
+online. Institutional support helped recruit an interdisciplinary team
+and supported collaboration.
+
+The "Deep Dive" framework served as a suitable guide for integrating
+interdisciplinary knowledge. Our team began by conducting secondary
+research, which helped us understand how elder autonomy is
+conceptualized across disciplines. Secondary research, brainstorming,
+and visualization allowed us to generate a conceptual model that
+guided primary research. In the next phase of our study, we will apply
+our findings to develop and test a service prototype.
+
+One additional challenge in interdisciplinary work we found was in
+measuring outcomes of the research. In nursing and health sciences,
+outcomes are measured by "effectiveness" of intervention [23]. Using
+this approach, we would follow feasibility and acceptability testing
+by measuring effective of our service prototype in increasing
+residential care patient autonomy. By contrast, designers tend not to
+rely on a pre-set framework to evaluate the success of a
+design. Instead, they explore design problem as they interact with
+users, and often conduct another set of user test at the end of design
+phase for validation and refinement. Merely finding a research problem
+using a framework and suggesting solutions is not sufficient in
+design; the goal is to generate even better solutions.
+
+
+4. Conclusion
+
+We describe the challenges and benefits of interdisciplinary research
+and identified strategies to promote interdisciplinary teamwork. The
+case study described the early phases of a project that is dedicated
+to promoting the residential care patient autonomy. We hope our case
+study can support interdisciplinary collaboration.
