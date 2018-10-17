@@ -27,3 +27,17 @@ MLZPS, then its erasure |e| terminates in MLZ.
 The proof relies on the fact that reduction in MLZPS implies reduction
 in MLZ. The full proof can be found in “more complete versions”
 [14. 18]. 
+
+In-class edit:
+
+Conventional implentations of languagges like XXXXSSS
+typically work on type-erased terms, which are obtained by erasing all
+syntax related to type index expressions in MLZPS. The following easy
+result relates the two languages: 
+
+Theorem (Should Really be a Theorem)[18]: If program e terminates in
+MLZPS, then its erasure |e| terminates in MLZ. 
+
+The proof relies on the fact that reduction in MLZPS implies reduction
+in MLZ. The full proof can be found in “more complete versions”
+[14. 18]. 

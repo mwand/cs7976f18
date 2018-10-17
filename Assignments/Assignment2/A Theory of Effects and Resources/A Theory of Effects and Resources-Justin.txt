@@ -28,11 +28,14 @@ Rewritten:
 	example, one collection may represent call-by-value while the
 	other represents call-by-name. The duploid relevant for
 	modeling a particular calculus can be constructed from the
-	calculus's own effect adjunction. We will then compare these
-	algebraic views with the adjunction models they are derived
-	from. This would generalize prior work by Führmann [21] and
-	Munch-Maccagnoni [39]. We conjecture that these
-	effect-resource calculi are initial objects, so that any
+	calculus's own effect adjunction.
+
+        We will then compare these duploid-based algebraic views with the adjunction
+	models they are derived from. This would generalize prior work
+	by Führmann [21] and Munch-Maccagnoni [39].
+
+        We conjecture that
+	these effect-resource calculi are initial objects, so that any
 	suitable duploid model or adjunction model of the same
 	language can be built by using a calculus and then
 	"forgetting" certain details other than values and stack

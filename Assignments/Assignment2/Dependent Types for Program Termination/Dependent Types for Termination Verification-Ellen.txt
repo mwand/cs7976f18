@@ -14,7 +14,9 @@ evaluation of a program in $ML_0^{\Pi, \Sigma}$ is (most likely) done
 through the evaluation of its erasure in $ML_0$. Please find more
 details on this issue in [18, 14].
 
-\subsection{Updated version of bold text:} In this section we discuss
+\subsection{Updated version of bold text:}
+
+In this section we discuss
 an interesting side result about erasure.
 
 First we define a new language $ML_0$ as the result of erasing all
@@ -27,4 +29,22 @@ reduces to $e_2$ in $ML_0^{\Pi, \Sigma}$, then $|e_1|$ reduces to
 $|e_2|$ in $ML_0$.  Therefore, if $e$ is terminating in $ML_0^{\Pi,
 \Sigma}$, then $|e|$ is terminating in $ML_0$.  This is related to
 some interesting results we focused on in previous work; check out
+[14, 18] for a detailed discussion.
+
+In-class edit:
+
+In this section we discuss
+an interesting side result about erasure.
+
+Define a new language $ML_0$ as the result of erasing all
+syntax related to type index expressions from our language $ML_0^{\Pi,
+\Sigma}$.
+
+Let $|e|$ be the erasure of expression $e$.
+It is easy to show that if $e_1$
+reduces to $e_2$ in $ML_0^{\Pi, \Sigma}$, then $|e_1|$ reduces to
+$|e_2|$ in $ML_0$.  Therefore, if $e$ is terminating in $ML_0^{\Pi,
+\Sigma}$, then $|e|$ is terminating in $ML_0$.  This is potentially
+useful because a conventional implentations of languagges like XXXXSSS
+typically work on type-erased terms. See
 [14, 18] for a detailed discussion.

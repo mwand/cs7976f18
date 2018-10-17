@@ -19,9 +19,9 @@ challenging, because there is a large gap between the syntax of the
 calculi and our description of the models. In the terminology of
 Führmann [21], our adjunction models are *indirect*: the primitive
 operations in the syntax and semantics are not aligned, and the
-semantics is more complex as a result. In previous work [39] the third
+semantics is more complex as a result. In previous work  the third
 author has presented duploids as a direct notion of model for
-L-calculi, with soundness and completeness proofs. We aim to prove
+L-calculi, with soundness and completeness proofs. [39] We aim to prove
 completeness of L-calculi with respect to adjunction models by
 relating duploids and adjunctions. In particular, we conjecture that
 duploids can be identified with adjunctions satisfying a "saturation"
@@ -32,6 +32,6 @@ We conjecture that the completeness proof would justify our
 requirement that our adjunctions are enriched over *distributive*
 presheaves, rather than arbitrary presheaves. We only used this
 restriction to prove equivalence of our adjunction models with CBPV
-models, they were not required to prove soundness. However, our syntax
+models; they were not required to prove soundness. However, our syntax
 is necessarily distributive, so distributivity is most likely required
 for the completeness proof.

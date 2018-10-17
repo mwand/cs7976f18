@@ -3,12 +3,12 @@
 
 Original copy of Abstract:
 
-Abstract—We define a monadic translation of
-type theory, called weaning translation, that allows for a large range
-of effects in dependent type theory—such as exceptions,
-non-termination, non-determinism or writing operation. Through the
-light of a call-by-push-value decomposition, we explain why the
-traditional approach fails with type dependency and justify our
+Abstract—We define a monadic translation of type theory, called
+weaning translation, that allows for a large range of effects in
+dependent type theory—such as exceptions, non-termination,
+non-determinism or writing operation. Through the light of a
+call-by-push-value decomposition, we explain why the traditional
+approach fails with type dependency and justify our
 approach. Crucially, the construction requires that the universe of
 algebras of the monad forms itself an algebra. The weaning translation
 applies to a version of the Calculus of Inductive Constructions (CIC)
@@ -35,3 +35,27 @@ elimination, and explain through call-by-push-value decomposition how
 type dependency interferes with effects.  By combining the weaning
 translation with a well-known parametricity translation, we can extend
 the translation to an unrestricted CIC.
+
+In class edits:
+
+We provide the first effectful version of the Calculus of Inductive
+Constructions (CIC), combining dependent type theory with a large
+range of effects, such as exceptions, non-termination,
+non-determinism, and writing operations.
+
+We do
+this by providing a monadic translation, called the weaning
+translation.
+
+We abstractly characterize which monadic effects this
+translation can model---namely, those whose universe of algebras of
+the monad form itself an algebra, i.e., self-algebraic monads.
+
+We
+develop this translation first for a version of CIC with restricted
+dependent elimination, and explain through call-by-push-value
+decomposition how type dependency interferes with effects.
+
+By
+combining the weaning translation with a well-known parametricity
+translation, we can then extend the translation to an unrestricted CIC.

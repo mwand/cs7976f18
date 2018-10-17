@@ -16,15 +16,49 @@ techniques with the weaning translation. This provides the first
 effectful version of CIC.
 
 
-Edit: The gap between type theories such as CIC and mainstream
+Edit:
+
+The gap between type theories such as CIC and mainstream
 programming languages comes to a large extend from the absence of
 effects in type theories, because of its complex interaction with
-dependency. The traditional approach fails with type dependency
+dependency.
+
+The traditional approach fails with type dependency
 because [a, b, c.], through the light of a call-by-push-value
-decomposition. We contribute the definition of weaning translation,
+decomposition.
+
+We contribute the definition of weaning translation,
 the first monadic translation of type theory, which allows for a a
-range of effects in dependent type theory. The weaning translation
+range of effects in dependent type theory.
+
+The weaning translation
 applies to a version of the Calculus of Inductive Constructions (CIC)
-with a restricted version of dependent elimination. Finally, we show
+with a restricted version of dependent elimination.
+
+Finally, we show
+how to recover a translation of full CIC by mixing parametricity
+techniques with the weaning translation.
+
+In-class edits:
+
+The gap between type theories such as CIC and mainstream
+programming languages comes to a large extent from the absence of
+effects in type theories.
+
+Tyoe theories generally do not have effects
+because of the complex interaction between
+effects and dependency.
+
+A call-by-push-value decomposition reveals the failures a,b, and c.
+
+We define the \emph{weaning translation}, 
+the first monadic translation of type theory, which allows for a 
+range of effects in dependent type theory.
+
+Our weaning translation
+applies to a version of the Calculus of Inductive Constructions (CIC)
+with a restricted version of dependent elimination.
+
+Finally, we show
 how to recover a translation of full CIC by mixing parametricity
 techniques with the weaning translation.
