@@ -1,0 +1,203 @@
+Evaluating Frameworks for Interdisciplinary Collaboration in Academia
+
+Ellen, Peizun, and Alexi
+
+
+\section{Abstract}
+
+With the advent of fields such as artificial intelligence, 
+human-computer interaction, and bioinformatics, interdisciplinary 
+collaboration is becoming a mainstay in modern research settings, 
+yet effective collaboration between disciplines still eludes many 
+researchers.  Some frameworks exist to provide guidelines for 
+cross-cutting projects, but they have yet to be tested broadly in 
+the computing sciences.  In this work, we evaluate the TEAMWORK and 
+“deep dive” strategies for interdisciplinary collaboration, drawing 
+on our own experience preparing for a large research project.  Our 
+success with these frameworks is sure to inspire and empower other 
+research groups to engage in collaborative research.
+
+
+\section{Introduction}
+
+Interdisciplinary collaboration can be challenging, complicated by
+each discipline having its own approach to problem solving, and
+potentially differing standards.  Frameworks exist for facilitating
+such collaboration, but they have not been well tested in an academic
+environment.  In this work, we assemble an interdisciplinary team of
+researchers to tackle a problem as one, and report on how useful the
+aforementioned frameworks proved to be.
+
+
+\section{Background and Motivation}
+
+In this work, we test two strategies for interdisciplinary
+collaboration: Choi and Pak's TEAMWORK~\cite{CP07} and Witterman and
+Stahl's Deep Dive~\cite{WS13,K01}.
+
+TEAMWORK is a framework which describes how to collaborate effectively
+across disciplines.  The acronym itself stands for Team, Enthusiasm,
+Accessibility, Motivation, Workplace, Objectives, Role, and Kinship,
+eight facets of collaboration that the authors deem essential for
+success in an interdisciplinary environment.  Each of the facets will
+be discussed in more detail in the following section, with examples
+drawn from our own experience.
+
+Another strategy for enhancing interdisciplinary collaboration is
+Witterman and Stahl's 'Deep Dive'.  This is a 5 step process: When a
+team has selected a problem to tackle, they are advised to (1)
+identify gaps in current knowledge surrounding the problem, (2)
+observe current practices and obtain user perspectives, (3) visualize
+potential solutions, (4) develop and test prototypes, and finally (5)
+implement the solution.
+
+This work aims to test both strategies in the context of an academic
+project addressing the problem of autonomy among elderly people with
+chronic illnesses in residential care.  The process of the
+interdisciplinary team being assembled and working together is
+discussed below, with specific regards to the TEAMWORK and Deep Dive
+frameworks presented.
+
+
+\section{Applying TEAMWORK}
+
+In this section we discuss the details of the TEAMWORK framework, and
+how we applied it to this project.
+
+\paragraph{Team} The first step in having a good team is to have a
+leader who understands the project and can recognize the variety of
+expertise required.  All team members must have good cooperation and
+communication skills in order to work together on something out of the
+scope of any individual person.  In our project, we drew members from
+the fields of human-computer interaction (HCI), design, business, and
+nursing.  Leading the group were faculty from each of these areas,
+ensuring that our team had competent and knowledgeable leadership with
+a wide knowledge base.
+
+\paragraph{Enthusiasm} People are going to be more committed to a
+project if it is something they are interested in; as such, this
+project was chosen to be something that motivated everyone.  However,
+interest in the topic is not the only factor -- personal commitment to
+a project is enhanced if the success of the project can assist in
+meeting career goals.  In other words, people need to be getting
+something out of the work in order to be motivated.  In this project,
+there were some barriers to this, as the rules for choosing order of
+authorship or in selecting a venue for publication to maximize
+reputability are incompatible between some disciplines.  To combat
+this, we addressed the problem of authorship early to avoid
+awkwardness near paper-submission time.  The topic of autonomy among
+elderly people with chronic illnesses in residential care was also
+identified as one which interested all members of the research team.
+
+\paragraph{Accessibility} Clearly, communication is a vital part of
+any group work.  Ensuring regular meetings and being available (either
+in person or via email) to answer questions in a timely manner allows
+for the project to progress and to make sure everyone is on the same
+page.  We scheduled weekly meetings to keep everyone engaged, and
+accounted for varying schedules by inviting members to connect
+remotely if they couldn't make it in person.
+
+\paragraph{Motivation} Continued motivation in the project is
+essential for continued productivity.  Again, interest in the research
+problem itself is not always enough.  In this project, motivating aids
+were comprised of money (by way of a grant), and not overwhelming the
+team members, designing the work schedule around when they had the
+most free time.
+
+\paragraph{Workplace} Working at an institution which fosters
+interdisciplinary research is also helpful for successful team work
+with a diverse group.  In this project, everyone attended a university
+that actually encouraged (and even funded) the collaboration between
+different departments.
+
+\paragraph{Objectives} Having a clear goal and some plan for steps
+along the way means people know what they should be doing and what is
+next in the work.  This is just another basic aspect of communication,
+where everyone working together is on the same page in terms of what
+the point of the project is.
+
+\paragraph{Role} Everyone knows what they are supposed to be doing on
+the project.  Clear roles and division of responsibilities is another
+basic aspect of productive group work.
+
+\paragraph{Kinship} Being friendly and having good communications
+between team members makes for a more open, welcoming, and thus more
+productive work environment.  One concrete way to foster an inviting
+environment when working with an interdisciplinary team is to avoid
+excessive use of area-specific jargon which might confuse the
+collaborators from other fields, which we were very aware of while
+working on this project.
+
+
+\section{Deep Dive}
+
+As described, we adapted the `Deep Dive' technique for our
+interdisciplinary project as the following 5 step process: (1)
+identify research gaps and understand the scope of the problem; (2)
+visualize theory-based conceptual models; (3) conduct user research to
+observe current practices and ascertain users’ perspectives; (4)
+prototype, design, develop, and test the proposed services; and (5)
+implementation of the newly designed service.  Since the project is
+still in progress, we present the first three phases in this section.
+
+\paragraph{Identify Research Problems} To identify valuable research
+problems, the first step is to conduct an extensive background study
+in your research area and then identify existing research gaps.
+
+\paragraph{Visualize Theory-Based Conceptual Models} To guide the user
+research, we need to develop conceptual models in two steps: we first
+identify ``themes" from literature independently; then, we visualize
+these themes to build conceptual models.
+
+\paragraph{Conduct User Research} Conducting user research is a key
+step for the success of a research project. This phase includes
+finding eligible participants and collecting extensive qualitative
+data.
+    
+In our deep dive, we started by looking at our chosen problem from all
+angles, framing the problem within each member's individual area of
+expertise.  This allowed us to formulate a plan of attack (so to
+speak), making objectives clear for everyone.  We then brainstormed
+together, visualizing each of our models in a lightweight manner and
+grouping related concepts from all fields.  This allowed us to
+construct a model which was aware of each member's take on the
+problem.  We validated our model with user research, drawing from and
+consolidated established methods from all fields.  Results will be
+made available in a forthcoming paper.
+
+
+\section{Discussion/Conclusion}
+
+In sum, our experience indicates that both the TEAMWORK framework as
+well as the deep dive are effective tools for facilitating
+interdisciplinary collaboration.  In particular, with TEAMWORK we
+quickly identified and addressed issues such as authorship convention
+and personal scheduling, and welcomed the support of our institution
+for multi-area research projects.  The first few steps of the ``deep
+dive'' helped us quickly integrate our individual, discipline-specific
+knowledge and focus on the problem at hand.  We hope that others are
+motivated by our success, and feel empowered to engage in their own
+cross-cutting research.
+
+
+
+
+\biblio
+
+@article{CP07, author = {C.K. Choi, Bernard and W.P. Pak, Anita}, year
+= {2007}, month = {02}, pages = {224-232}, title =
+{Multidisciplinarity, interdisciplinarity, and transdisciplinarity in
+health research, services, education and policy: 2. Promotors,
+barriers, and strategies of enhancement}, volume = {30}, journal =
+{Clinical and investigative medicine} }
+
+@article{WS13, author = {Holly O Witteman and James E Stahl}, title =
+{Facilitating interdisciplinary collaboration to tackle complex
+problems in health care: report from an exploratory workshop}, journal
+= {Health Systems}, volume = {2}, number = {3}, pages = {162-170},
+year = {2013} }
+
+@article{K01, author = {Kelley, Tom}, year = {2001}, month = {01},
+pages = {}, title = {The Art of Innovation: Lessons in Creativity from
+IDEO, America's Leading Design Firm}, volume = {10}, journal =
+{Broadway Business} }
