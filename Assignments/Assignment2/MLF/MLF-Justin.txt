@@ -27,7 +27,70 @@ programmer-provided annotations informing the two uses of
 \exists and inference identifying the \sqsubseteq step.
 
 We first define the "abstraction" relation E, the inverse of \exists,
-in Figure 3. E relates a prefix—setting bounds on type variables—and
+in Figure 3. E relates a prefix--- setting bounds on type variables---
+and
+two types. The irreversability of E arises from the A-Hyp rule, which
+relates a type and a variable if the variable is rigidly bound at that
+type. We can replace any type with a name that refers to it. Our
+inference algorithm will not freely do the reverse. That is, revealing
+the polytype represented by some name must be done explicitly via a
+programmer-provided annotation. Otherwise, the polytype can only be
+manipulated by reference to its name.
+
+In-class edit:
+
+Section 1.3: The Abstraction Relation
+
+In the previous section, we discussed the equivalence of types, which
+is a symmetric relation.
+
+In other words,
+converting from one type to an equivalent type is
+reversible.
+
+On the other hand, a conversion from a polymorphic
+type to one of its instantiations may be an irreversible
+transformation.
+
+Recall our plan to decompose the polymorphic
+instantiation relation \precurlyeq into the composition of
+three relations \exists \sqsubseteq \exists, with
+programmer-provided annotations informing the two uses of
+\exists and inference identifying the \sqsubseteq step.
+
+
+====
+
+Recall our plan to decompose the polymorphic
+instantiation relation \precurlyeq into the composition of
+three relations \exists \sqsubseteq \exists, with
+programmer-provided annotations informing the two uses of
+\exists and inference identifying the \sqsubseteq step.
+
+[Need another sentence or two to say:]
+<Whatever this is>, it involves non-symmetric relations.
+On the other hand, a conversion from a polymorphic
+type to one of its instantiations may be an irreversible
+transformation.
+>
+
+The previous section dealt with the equivalence of types, which
+is a symmetric relation.   Our next task is to generalize this notion
+to cover <some?> non-symmetric relations.
+
+We begin this part of the story by defining a relation E, the inverse
+of \exists....
+
+
+
+
+
+
+====
+
+We first define the "abstraction" relation E, the inverse of \exists,
+in Figure 3. E relates a prefix--- setting bounds on type variables---
+and
 two types. The irreversability of E arises from the A-Hyp rule, which
 relates a type and a variable if the variable is rigidly bound at that
 type. We can replace any type with a name that refers to it. Our

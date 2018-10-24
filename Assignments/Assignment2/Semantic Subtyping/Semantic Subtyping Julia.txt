@@ -41,3 +41,24 @@ involves four mutually recursive judgments: two coinductive judgments
 for subtyping, and type emptiness, and their corresponding (inductive)
 negations. 
 
+### in-class edit:
+
+Record mutability makes it challenging to provide a well-defined
+semantic model of subtyping. Unlike in a purely functional setting
+with immutable records where types can be rather straightforwardly
+interpreted in terms of values, here the problem arises due to field
+type annotations (they specify which values can be stored in
+fields). Namely, since fields of record values are associated with
+types and types are interpreted as sets of values, types got
+interpreted in terms of themselves, and thus a circularity is
+introduced.
+
+
+[Julia susggests deleting this paragraph entirely]
+The circularity needs to be properly managed; in particular, the
+definitions of the judgment for typing values and of its negation are
+mutually recursive, with the former one being coinductive and the
+latter being inductive. As a consequence, the definition of subtyping
+involves four mutually recursive judgments: two coinductive judgments
+for subtyping, and type emptiness, and their corresponding (inductive)
+negations. 

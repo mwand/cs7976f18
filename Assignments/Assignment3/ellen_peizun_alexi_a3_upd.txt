@@ -1,4 +1,4 @@
-Evaluating Frameworks for Interdisciplinary Collaboration in Academia
+//Evaluating// Frameworks for Interdisciplinary Collaboration in /Academia/
 
 Ellen, Peizun, and Alexi
 
@@ -16,6 +16,18 @@ the computing sciences.  In this work, we evaluate the TEAMWORK and
 on our own experience preparing for a large research project.  Our 
 success with these frameworks is sure to inspire and empower other 
 research groups to engage in collaborative research.
+
+in-class:
+
+ 
+Interdisciplinary collaboration is becoming a mainstay in modern
+research settings, yet effective collaboration between disciplines
+still eludes many researchers.  Some frameworks exist to provide
+guidelines for cross-cutting projects, but they have yet to be tested
+broadly /in the computing sciences/.  In this work, we evaluate the
+TEAMWORK and “deep dive” strategies for interdisciplinary
+collaboration, drawing on our own experience preparing for a large
+research project.  [More specific about application area??]
 
 
 \section{Introduction}
