@@ -1,0 +1,224 @@
+\newcommand{\localCommand}{} % command names start with \
+\newlength {\localLength}    % length  names start with \
+\newcounter {localCounter}   % counter names have  no \
+
+\newcommand{\newlengthset}       [2]{\newlength {#1} \setlength {#1}{#2}}
+\newcommand{\newlengthsettowidth}[2]{\newlength {#1} \settowidth{#1}{#2}}
+\newcommand{\newcounterset}      [2]{\newcounter{#1} \setcounter{#1}{#2}}
+
+\newcommand{\ensurecommand}[2]{
+  \providecommand{#1}{}
+  \renewcommand{#1}{#2}}
+
+% Number ranges and other set symbols
+
+\newcommand{\numberRange}[1]{\mathbb #1}
+\newcommand{\NN}{\numberRange N}                             % naturals
+\newcommand{\ZZ}{\numberRange Z}                             % integers
+\newcommand{\QQ}{\numberRange Q}                             % rationals
+\newcommand{\RR}{\numberRange R}                             % reals
+\newcommand{\CC}{\numberRange C}                             % complexes
+\newcommand{\BS}{\{0,1\}}                               % boolean space
+\newcommand{\OO}{\mathcal O}                            % Landau
+
+\newcommand{\PP}{\mathds P}                             % Program
+\newcommand{\BB}{\mathds B}                             % boolean program
+\newcommand{\range}[3][X]{\Ifthen{\Equal{#1}{X}}{\{}#2,\ldots,#3\Ifthen{\Equal{#1}{X}}{\}}} % {1,...,n}, or 1,...,n if no optional arg
+\newcommand{\power}[1]{2^{#1}} % \mathcal P(#1)}        % power set
+
+\newcommand{\complexity}[1]{\mbox{\bfseries #1}}
+\newcommand{\PTIME} {\complexity{P}}
+\newcommand{\NP}    {\complexity{NP}}
+\newcommand{\PSPACE}{\complexity{PSPACE}}
+
+% Relational symbols
+
+\newcommand{\atl}{\geq}                                 % at least
+\newcommand{\atm}{\leq}                                 % at most
+%\newcommand{\divides} {\operatorname{|}}                % divides % use MnSymbol package
+\newcommand{\st}  {\operatorname{|}}                    % such that: { x | f(x) = 10 }
+\newcommand{\mmod}{\operatorname{mod}}                  % '\pmod' creates huge space before the 'mod'
+\newcommand{\grammarOr}{\ \mbox{\Large $\mid$} \ }
+
+\newcommand{\union}       {\mathbin        {\cup}}      % set union
+\newcommand{\Union}       {\operatorname{\bigcup}}      % big union
+\newcommand{\intersection}{\mathbin        {\cap}}      % set intersection
+\newcommand{\Intersection}{\operatorname{\bigcap}}      % big intersection
+                                                        % set complement is \complement
+\newcommand{\argmin}{\operatorname{argmin}}
+\newcommand{\argmax}{\operatorname{argmax}}
+
+\newcommand{\superset}   {\supset}                      % superset ">"
+\newcommand{\superseteq} {\supseteq}                    % superset ">="
+\newcommand{\supersetneq}{\supsetneqq}                  % strict superset with emphasis (avoid)
+
+% Calculus and algebra
+
+\newcommand{\func}[3]{#1 \colon #2 \rightarrow #3}      % function f:A->B
+\newcommand{\restr}[2]{#1\big|_{#2}}                    % function f restricted to X (f|X)
+\newcommand{\deriv}[2]{#1^{(\mathit{#2})}}              % higher derivatives of a function
+\newcommand{\dd}{\,d}                                   % differential symbol with preceding space
+\newcommand{\mtrans}[1]{{#1}^{\mathbf{T}}}              % transpose of a matrix
+\newcommand{\binCoeff}[2]{                              % binomial coefficient "#1 choose #2"
+  \mbox{\scriptsize{$\left(\begin{array}{c} #1 \\ #2 \end{array} \right)$}}}
+\newcommand{\flip}[2]{(#1 \ #2)}                        % transposition of two elements: (2 3)
+
+
+% Parentheses, ceilings, floors and angle brackets - small and big
+
+\newcommand{\parens}  [1]{        (    #1          )   } % argument in (.) (added for completeness)
+\newcommand{\ceils}   [1]{     \lceil  #1       \rceil } % argument in ceilings
+\newcommand{\floors}  [1]{     \lfloor #1       \rfloor} % argument in floors
+\newcommand{\angles}  [1]{     \langle #1       \rangle} % argument in <.>
+\newcommand{\brackets}[1]{        [    #1          ]   } % argument in [.]
+
+\newcommand{\Parens}  [1]{\left(       #1 \right)      } % argument in big (.)
+\newcommand{\Ceils}   [1]{\left\lceil  #1 \right\rceil}  % argument in big ceilings
+\newcommand{\Floors}  [1]{\left\lfloor #1 \right\rfloor} % argument in big floors
+\newcommand{\Angles}  [1]{\left\langle #1 \right\rangle} % argument in big <.>
+\newcommand{\Brackets}[1]{\left   [    #1 \right   ]   } % argument in big [.]
+
+
+% Boolean connectives. These already exist: \land, \lor, \lnot
+
+\newcommand{\limplies}{\Rightarrow}               % logical 'implies'
+\newcommand{\lfollows}{\Leftarrow}                % logical 'follows from' (converse of implies)
+\newcommand{\lequiv}  {\Leftrightarrow}           % logical 'equivalent'. Also \equiv
+\newcommand{\lxor}    {\oplus}                    % logical 'exclusive or'
+\newcommand{\lexor}   {\oplus}                    % ditto
+\newcommand{\bigland} {\bigwedge}
+\newcommand{\biglor}  {\bigvee}
+\newcommand{\false}   {\mathit{false}}
+\newcommand{\true}    {\mathit{true}}
+
+\newcommand{\Hoare}[3]{\angles{#1} \ \mbox{\code{#2}} \ \angles{#3}}  % Hoare triple: <#1> #2 <#3>. Use: \Hoare{x > 10}{$x$++}{x > 10}
+
+% Conditional compilation
+% I found out on Mar 10, 2007 that if-then-else cannot be nested within the condition:
+% \ifthenelse {\ifthenelse{\equal{1}{1}}{\equal{1}{1}}{\equal{1}{2}}} {Yes} {No} % gives Tex error
+% Nesting within the then-branch and the else-branch seems ok
+
+\newcommand{\Ifthenelse}[3]{\ifthenelse{#1}{#2}{#3}}   % for consistency: initial capital
+\newcommand{\Ifthen}    [2]{\Ifthenelse{#1}{#2}{}}
+\newcommand{\Unless}    [2]{\Ifthen{\not {#1}}{#2}}
+\newcommand{\Equal}     [2]{\equal{#1}{#2}}            % for consistency: initial capital
+\newcommand{\Empty}     [1]{\Equal{#1}{}}
+\newcommand{\True}         {\Equal{1}{1}}
+\newcommand{\False}        {\Equal{1}{2}}
+
+
+
+% Enumeration with specific counter types. Usage:
+% \begin{enumerate} \alphaenumi
+%
+% \item ...
+
+\newcommand{\renewcounter}[4]{\renewcommand{#1}{(#4 {#3})}\renewcommand{#2}{(#4 {#3})}}
+
+\newcommand{\alphaenumi}{\renewcounter{\theenumi}{\labelenumi}{enumi}{\alph}}  % (a) ... (e)
+\newcommand{\Alphaenumi}{\renewcounter{\theenumi}{\labelenumi}{enumi}{\Alph}}  % (A) ... (E)
+\newcommand{\romanenumi}{\renewcounter{\theenumi}{\labelenumi}{enumi}{\roman}} % (i) ... (v)
+\newcommand{\Romanenumi}{\renewcounter{\theenumi}{\labelenumi}{enumi}{\Roman}} % (I) ... (V)
+
+\newcommand{\alphaenumii}{\renewcounter{\theenumii}{\labelenumii}{enumii}{\alph}}
+\newcommand{\Alphaenumii}{\renewcounter{\theenumii}{\labelenumii}{enumii}{\Alph}}
+\newcommand{\romanenumii}{\renewcounter{\theenumii}{\labelenumii}{enumii}{\roman}}
+\newcommand{\Romanenumii}{\renewcounter{\theenumii}{\labelenumii}{enumii}{\Roman}}
+
+
+% Draft. I don't use latex's [draft] option because it needlessly suppresses graphics includes.
+% Use the following header structure:
+
+% % Begin Customization Section. Comment these out to turn the flag off.
+%
+%\newcommand{\Draftmode}{\True}
+%\newcommand{\SomeFlag} {\True}
+%
+% % End Customization Section
+%
+% % Default values of options:
+%
+%\providecommand{\SomeFlag}{\False}
+%
+%\documentclass{...}
+%
+%\input{general}
+
+\providecommand{\Draftmode}{\False}
+
+\newcommand{\draftcolor}{red}
+
+\newcommand{\Itedraft}    [2]{\Ifthenelse{\Draftmode}{#1}{#2}}
+\newcommand{\Ifdraft}     [1]{\Itedraft{#1}{}}
+\newcommand{\Unlessdraft} [1]{\Itedraft{}{#1}}
+\newcommand{\drafttext}   [2][\draftcolor]{\Ifdraft{{\color{#1}#2}}}
+\newcommand{\draftpointer}{\makebox[0mm][c]{$^*$}}
+\newcommand{\draftmargin} [2][\draftcolor]{\drafttext[#1]{\draftpointer\marginpar[\raggedleft\small{\color{#1}#2}]{\raggedright\small{\color{#1}#2}}}} % marginalia, shown in draftmode only
+\newcommand{\draftdate}   [1][\today]{\drafttext{\makebox[0mm][l]{\normalfont\tiny \ \ (Draft of #1)}}} % use behind title or author names
+\newcommand{\draftsection}[2][Draft Material]{\Ifdraft{           \section*{#1} #2}}  % this and the next don't work with the "letter" class (which doesn't have \section)
+\newcommand{\Draftsection}[2][Draft Material]{\Ifdraft{\clearpage \section*{#1} #2}}
+\newcommand{\draftnewpage}  {\Ifdraft{\newpage}}
+\newcommand{\draftclearpage}{\Ifdraft{\clearpage}}
+
+\newcommand{\draftauthor} [3]{
+  \newcommand{#1}[1]{\drafttext  [#3]{##1}}   % Use:     \draftauthor{\thomas}{\thomasmargin}{green}
+  \newcommand{#2}[1]{\draftmargin[#3]{##1}}}  % defines: \thomas{long comment}, \thomasmargin{short comment}
+
+% \ifspace{XYZ} causes XYZ to be shown only in draft mode. Used for text fragments that are fine but non-essential
+\newcommand{\useifspacecommand}{\draftauthor{\ifspace}{\ifspacemargin}{lightgray}}
+
+\Ifdraft{\setlength{\overfullrule}{10mm}}
+
+\newcommand{\etal}{et~al.}
+\newcommand{\CPL}{\texttt C}
+\newcommand{\CPP}{\texttt{C++}}
+\newcommand{\tool}[1]{\textsc{#1}}
+\newcommand{\toolsmall}[1]{{\footnotesize #1}} % S\toolsmall{VISS} (use e.g. to print small caps in bold: \textsc{S\toolsmall{VISS}}
+
+\newcommand{\RegSuper}{$^{\mbox{\scriptsize\textregistered}}$}
+\newcommand{\TMSuper} {$^{\mbox{\scriptsize\texttrademark }}$}
+
+% Centering
+
+\newcommand{\centerOne}     [1]{\mbox{} \hfill #1 \hfill \mbox{}}                     % |    #1    |. Use with  one        object.
+\newcommand{\centerTwoIn}   [2]{\mbox{} \hfill #1 \hfill #2 \hfill \mbox{}}           % |  #1  #2  |. Use with  two  small objects.
+\newcommand{\centerTwoOut}  [2]               {#1 \hfill #2}                          % |#1      #2|. Use with  two  large objects.
+\newcommand{\centerThreeIn} [3]{\mbox{} \hfill #1 \hfill #2 \hfill #3 \hfill \mbox{}} % | #1 #2 #3 |. Use with three small objects.
+\newcommand{\centerThreeOut}[3]               {#1 \hfill #2 \hfill #3}                % |#1  #2  #3|. Use with three large objects.
+
+% Miscellaneous
+
+\newlength{\posLength}
+\newcommand{\pos}[3][c]{\settowidth{\posLength}{#3}\makebox[\posLength][#1]{#2}}
+                                                        % Creates a box with contents #2, alignment #1 [c], width same as that of #3
+                                                        % Note: #2, #3 must use explicit $$ if used in math mode since it is in a box
+                                                        % Example: \pos{$p$}{$c_p^i$}
+\newcommand{\raisetext}[2][1.3ex]{\raisebox{#1}[-#1]{#2}} % Raise #2 by the amount given. Used in tables to vertically center text in double lines
+\newcommand{\mc}{\multicolumn}                          % abbreviation for 'multicolumn'
+\newlengthsettowidth{\tabLength}{\ \ \ }
+\newcommand{\tab}{\hspace*{\tabLength}}                 % introducing some space in formulas
+
+\newcommand{\wbox}[2][\tabLength]{\hspace*{#1}\mbox{#2}\hspace*{#1}}
+
+\renewcommand{\iff}[1][!]{\Ifthenelse{\equal{#1}{!}}{\wbox{iff}}{\wbox[#1]{iff}}}
+
+\newcommand{\0}[1]{}                                                   % comment from { to }. Note: {} is a token, so use A\0{ } B for ONE blank: A B
+\newcommand{\End}{\end{document}}                                      % ignore rest of document
+\newcommand{\format}{\drafttext{\underline{\makebox[0mm][c]{$\mid$}}}} % Mark commands for final formatting: \format\vspace{2mm}. Also creates visible mark in text (of zero width)
+\newcommand{\horiline}[1][\textwidth]{\noindent\rule{#1}{1pt}}         % horizontal line to separate text portions. Use on a separate line
+\newcommand{\normalitem}[1][]{\item[\normalfont #1]}                   % an item (in a description environment) that is not printed in bf
+\newcommand{\emphasize}[1]{\textbf{#1}}                                % stronger than \emph
+\newcommand{\emphdef}[1]{\emphasize{#1}}                               % \emph is too weak in defs
+\newcommand{\Quote}[3][]{                                              % \Quote[]{What}{Who} or \Quote[40mm]{What}{Who}, the latter with box around
+  \Ifthenelse{\Empty{#1}}{%
+    \begin{quote} ``#2'' \\ \mbox{} \hfill \textnormal{#3} \end{quote}}{%
+    \Doublebox[#1]{\emph{``#2''} \\ \mbox{} \hfill #3}}}
+
+\newcommand{\Pagebreak}[1][(continued on next page)]{ % pagebreak with hint
+  \vfill \mbox{} \hfill #1
+  \pagebreak
+
+} % need empty line after \pagebreak
+
+% for long URLs, where we need to manually insert line breaks. Requires package url (and reasonably hyperref)
+\newcommand{\longurl}[2]{\href{#1}{\ttfamily #2}} % use: \longurl{www.a.long.url/homepage.html}{www.a.long.url/ \\ homepage.html}

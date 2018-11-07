@@ -1,0 +1,1400 @@
+% \newcommand{\Draftmode}{\True}
+
+%========================================Statement=============================%
+% The following is the statement about this slide:
+%   (1) This slide is based on the template of beamer with style
+%       Cambridge US. All of the copyright belong to them.
+%   (2) This slide is used to introduce the fundamental papers &
+%       project for class CS7485 in CCIS at NE.
+%==============================================================================%
+\documentclass[aspectratio=169]{beamer}
+\usetheme{default}%Singapore}%Pittsburgh}%Szeged}
+\usecolortheme{default}
+\setbeamercovered{dynamic}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{helvet}
+\usefonttheme{structurebold}
+% \setbeamertemplate{footline}[frame number]{}
+\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[\paperwidth]{\hfill\makebox[10pt]{\scriptsize\textcolor{gray}{\insertframenumber\qquad}}}}}
+
+\usepackage{ragged2e}
+\apptocmd{\frame}{\justifying}{}{}
+%================================Customize Colors==============================%
+\definecolor{myblue}{rgb}{0.725, 0.796, 1.000}
+\definecolor{mygreen}{rgb}{0.012, 0.612, 0.388}
+\definecolor{mypurple}{rgb}{0.518, 0.00, 0.518}
+%=================================Cover Page===================================%
+\usepackage{lipsum}
+\usepackage{enumerate}
+\usepackage{bbm}
+\usepackage{dsfont}
+\usepackage{pdfpages}
+\usepackage{multirow}
+\usepackage{pgf}
+\usepackage{makecell}
+% *** MATH PACKAGES ***
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{pifont}
+
+% *** ALIGNMENT PACKAGES ***
+\usepackage{array}
+
+% *** SUBFIGURE PACKAGES ***
+
+% *** BOX PACKAGE ***
+\usepackage{fancybox}
+
+% *** PDF, URL AND HYPERLINK PACKAGES ***
+\usepackage{url}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows,chains,matrix,positioning,scopes,3d,automata,backgrounds,fit,shapes}
+\usepackage{smartdiagram}
+\usepackage{pgfplots}
+\usetikzlibrary{plotmarks}
+
+\usepackage[nodayofweek]{datetime}
+\usepackage{rotating}
+
+\usepackage[noend]{algorithmic}
+\usepackage{algorithm}
+\usepackage{syntax, etoolbox}
+\renewcommand{\syntleft}{\normalfont\itshape}   % do not display '<' associated with variable, e.g., <A>
+\renewcommand{\syntright}{}  % do not display '>' associated with variable, e.g., <A>
+
+\usepackage{stmaryrd}
+\usepackage{wasysym}
+\usepackage{tabularx}
+\usepackage{listings}
+\lstset{frameround=fttt, 
+  language=C++,
+  keywordstyle=\color{blue}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  commentstyle=\color{green}\ttfamily,
+  morecomment=[l][\color{magenta}]{\#},
+  escapechar=@,
+  basicstyle=\fontsize{7}{8}\selectfont\ttfamily,
+  emph={decl, begin, end, goto, start_thread,
+    assume,assert,wait,broadcast,int,if,return,while},
+  commentstyle=\color{mygreen}}
+
+\input{./include/general}
+\input{./include/genericref}
+\input{./include/theorems}
+\input{./include/algorithms}
+\input{./include/cubamacro}
+
+% \draftauthor{\thomas} {\thomasmargin}{cyan}
+\draftauthor{\peizun} {\peizunmargin}{brown}
+
+\newcommand{\emphb}[1]{\textcolor{blue}{#1}}
+\newcommand{\emphr}[1]{\alert{#1}}
+\newcommand{\bhand}{\color{blue}{\ding{43}}}
+\newcommand{\rhand}{\color{red}{\ding{43}}} 
+
+\newcommand{\itbf}[1]{\textit{\textbf{#1}}}
+
+\newcommand{\recur}[1]{#1}
+\newcommand{\nonrecur}[1]{#1^{\bullet}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\date{October 30, 2018}
+
+%==================================Content=====================================%
+\AtBeginSection[] {
+\begin{frame}%<beamer>
+    \frametitle{Outline}%Content}
+     \tableofcontents[current]
+\end{frame}
+}
+
+\setcellgapes{3pt}
+\setbeamertemplate{section in toc}[ball unnumbered]
+\setcounter{tocdepth}{1}
+
+\begin{document}
+%===============================Cover Page=====================================%
+\institute[CCIS, NEU]{CCIS, Northeastern University}
+\title[Resource-Parameterized Program Analysis using OS]{Resource-Parameterized Program Analysis\\ using Observation Sequences} 
+\author[2018]{\textbf{Peizun Liu} \\ \vskip8pt
+  {\small Ph.D. Proposal}
+}
+
+
+%========================================Content===============================%
+\begin{frame}
+  \titlepage
+\end{frame}
+\begin{frame}
+    \frametitle{Outline}
+    \tableofcontents[]
+\end{frame}
+
+%==================================Section 1===================================%
+\section{Overview of the Research}
+
+\begin{frame}
+  \frametitle{Problem Statement}
+    \begin{block}<1->{\textit{\textbf{Target is ...}}}
+      \vskip4pt
+    {\bhand} \emph{\alert{resource-parameterized programs}, which are designed over a \alert{variable} number of \alert{discrete resources}.}
+    \end{block}
+    \begin{block}<2>{\emph{``Resources'' could mean:}}
+      \vskip6pt
+      \begin{columns}
+        \begin{column}{0.18\textwidth}
+          \begin{center}
+            \includegraphics<2>[width=0.61\textwidth]{figures/brain/threads}
+          \end{center}
+        \end{column}
+        \begin{column}{0.18\textwidth}
+          \begin{center}
+            \includegraphics<2>[width=0.61\textwidth]{figures/brain/context-2}
+          \end{center}
+        \end{column}
+        \begin{column}{0.18\textwidth}
+          \begin{center}
+            \includegraphics<2>[width=0.61\textwidth]{figures/brain/memory}
+          \end{center}
+        \end{column}
+        \begin{column}{0.18\textwidth}
+          \begin{center}
+            \includegraphics<2>[width=0.61\textwidth]{figures/brain/executions}
+          \end{center}
+        \end{column}
+        \begin{column}{0.18\textwidth}
+          \begin{center}
+            \includegraphics<2>[width=0.61\textwidth]{figures/brain/channel}
+          \end{center}
+        \end{column}
+        \begin{column} {0.08\textwidth}
+          \begin{center}
+            ...
+         \end{center}
+        \end{column}
+      \end{columns}
+      \begin{columns}
+        \begin{column}{0.18\textwidth}
+          \begin{center}
+            \textit{\scriptsize threads}
+          \end{center}
+        \end{column}
+        \begin{column}{0.18\textwidth}
+          \begin{center}
+            \textit{\scriptsize context switches}
+          \end{center}
+        \end{column}
+        \begin{column}{0.18\textwidth}
+          \begin{center}
+            \textit{\scriptsize memory writes}
+          \end{center}
+        \end{column}
+        \begin{column}{0.18\textwidth}
+          \begin{center}
+            \textit{\scriptsize executions}
+          \end{center}
+        \end{column}
+        \begin{column}{0.18\textwidth}
+          \begin{center}
+            \textit{\scriptsize message channels}
+          \end{center}
+        \end{column}
+        \begin{column} {0.08\textwidth}
+          \begin{center}
+            ...
+         \end{center}
+        \end{column}
+      \end{columns}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Problem Statement}
+  \begin{block}{\emph{Analysis is to ...}}
+    \vskip4pt
+    {\bhand} \emph{ensure \alert{safety} of such programs for an \alert{unspecified} number of resource instances}
+  \end{block}
+  \begin{block}{\emph{Safety could mean ...}}
+    \vskip4pt
+    \begin{enumerate}[{\bhand}]
+      
+    \item \emph{free of \alert{data race / race condition} in shared-memory multi-threaded programs}
+
+    \item \emph{\alert{responsiveness} in message-passing programs}
+
+    \item \emph{\alert{deadlock-free} or \alert{mutual exclusion} in distributed systems}
+
+    \item \emph{\alert{assertions} ...}
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Motivation}
+%   \begin{block}{\itbf{Why do we care? Well ...}}
+%   \end{block}
+% \end{frame}
+
+\begin{frame}
+  \frametitle{Motivation}
+  \only<1>{
+    \begin{block}{\itbf{Reason 1}}
+      \vskip4pt
+      {\bhand} \emph{Resource-parameterized programs are \alert{ubiquitous.}}      
+      \vskip6pt
+      \begin{center}
+        \includegraphics[width=1\textwidth]{figures/brain/rpg}
+      \end{center}
+    \end{block}}
+  \only<2>{
+    \begin{block}{\itbf{Reason 2}}
+      \vskip4pt
+      {\bhand} \emph{Ensuring their safety is \alert{desirable} and \alert{significant}.}
+      \vskip2pt
+      \begin{center}
+        \includegraphics[width=0.7\textwidth]{figures/brain/magician}
+      \end{center}
+    \end{block}
+  }
+
+  \only<3>{
+    \begin{block}{\itbf{However, ...}}
+      \vskip4pt
+      {\bhand} \emph{resource-parameterized program analysis is \alert{challenging}.} 
+      \vskip6pt
+      \begin{columns}
+        \begin{column}{0.58\textwidth}
+          \begin{center}
+            \includegraphics[width=\textwidth]{figures/brain/undecidable}
+          \end{center}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+          \begin{center}
+            \includegraphics[width=0.75\textwidth]{figures/brain/challenge}
+          \end{center}
+        \end{column}
+      \end{columns}
+      \begin{columns}
+        \begin{column}{0.58\textwidth}
+          \begin{center}
+            \emph{\scriptsize \alert{intractable}}
+          \end{center}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+          \begin{center}
+            \emph{\scriptsize or even \alert{undecidable}}
+          \end{center}
+        \end{column}
+      \end{columns}   
+    \end{block}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A Sidestep}
+  \only<1>{
+    \begin{block}{\textit{\textit{Resource-bounded analysis}}}
+      \vskip6pt
+      \begin{center}
+        \includegraphics[width=0.9\textwidth]{figures/brain/rba}
+      \end{center}
+    \end{block}
+  }
+  \only<2>{
+    \begin{block}{\textit{\textit{Tested empirically~[ASPLOS'08]}}}
+      \vskip4pt
+      {\bhand} \emph{Most bugs can be exposed with a \alert{small} number of resources.}
+    \end{block}
+    \begin{block}{\textit{\textit{We thus have}}}
+      \begin{center}
+        \includegraphics[width=0.75\textwidth]{figures/brain/bug-finding}\\
+        \vskip6pt
+        {\textbf{\textit{a \alert{bug-finding} technique}}}
+     \end{center}
+   \end{block}
+  }
+  \only<3>{
+    \begin{block}{\emph{Still, uncertainty remains ...}}
+      \vskip4pt
+      {\bhand} \emph{beyond the pre-specified bound.}
+      \vskip6pt
+      \begin{center}
+        \includegraphics[width=0.55\textwidth]{figures/brain/bug}
+     \end{center}
+   \end{block}
+ }
+\end{frame}
+ \begin{frame}
+  \frametitle{Beyond the Sidestep}
+  \only<1>{
+    \begin{block}{\textit{\textit{Can we lift the bug-finding technique to resource-unbounded analysis?}}}
+    \end{block}
+    \begin{block}{}
+      \vspace{-4pt}
+      \begin{center}
+        \includegraphics[width=0.55\textwidth]{figures/brain/nobug}
+      \end{center}
+    \end{block}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Status of Research}
+  \only<1>{
+    \begin{block}{}%{\textit{Existing research}}
+      \vspace{-10pt}
+      \begin{center}
+        \includegraphics[width=1\textwidth]{figures/sor}
+      \end{center}
+    \end{block}}
+  % \only<2>{
+  %   \begin{block}{\textit{Existing research}}
+  %     \begin{center}
+  %       \includegraphics[width=0.9\textwidth]{figures/sor2}
+  %     \end{center}
+  %   \end{block}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Research Goal}
+  \begin{block}{\textit{To provide ...}}
+    \vskip4pt
+    {\bhand} \emph{a \alert{uniform} paradigm, which can}
+      \begin{center}
+        \emph{lift resource-bounded bug-finding technique to \alert{resource-unbounded analysis}.}
+      \end{center}
+  \end{block}
+\end{frame}
+
+%\section{A Motivating Example}
+\begin{frame}
+  \frametitle{Our Paradigm: Bird's Eye View}
+  \only<1>{
+    \begin{block}{\textit{Observation sequence (OS) ...}}
+      \vskip4pt
+     \emph{\small{Informally, a sequence of \alert{program behaviors} $\observation[k]$ observed within $k$ instances of resource.}}
+    \end{block}
+    % \begin{block}{\textit{As a (fairly natural) requirement,}}
+   %    \[
+   %      \observation[k] \subseteq \observation[k+1]
+   %    \]
+   %    \begin{center}
+   %      {\bf Monotonicity}
+   %   \end{center}
+   % \end{block}
+   \begin{block}{\textit{Examples}}
+     \begin{enumerate}[\bhand]
+     \item
+        $\observation[k]$ := \{\emph{ reachable program \alert{states} within $k$ threads}\}
+    \item
+        $\observation[k]$ := \{\emph{ reachable program \alert{locations} within $k$ threads}\}
+    \item ...
+    \end{enumerate}
+   \end{block}}
+%    Put examples here: monotone and non-monotone ones. 
+% \end{frame}
+
+% \begin{frame}
+%   \frametitle{Bird's Eye View}
+ \only<2>{
+   \begin{block}{Scheme}
+     \centering
+     \resizebox{0.7\textwidth}{!}{
+       \input{figures/overview.tex}
+     }
+   \end{block}}
+\end{frame}
+
+\section{A Paradigm: Observation Sequences}
+\begin{frame}
+  \frametitle{Observation Sequences}
+  \begin{definition}
+    \vskip4pt
+    \label{definition: observation sequence}
+    An \emphdef{observation sequence} is a sequence $\OS$ with the following
+    properties:
+    \begin{enumerate}[$\bullet$]
+    \item%{\bf \emph{monotonicity~:}}
+      \emph{for all $k$, $\observation_k \subseteq \observation_{k+1}$, that is \alert{monotonicity}.} 
+
+    \item%{\bf \emph{computability:}}
+      \emph{for all $k$, $\observation_k$ is \alert{computable}}. 
+
+    \item%{\bf \emph{expressibility:}}
+      \emph{for all $k$, $\observation[k] \models \property$ is \alert{decidable}, where $\property$ is a property of interest}.
+    \end{enumerate}
+  \end{definition}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Convergence Detection is Challenging}
+  \begin{block}{}%{\textit{A possible approach}} \vskip4pt
+    \begin{columns}
+      \begin{column}{0.49\textwidth}
+        \begin{center}
+          % \includegraphics[width=1\textwidth]{figures/overview}
+          \resizebox{1\textwidth}{!}{
+            \input{figures/overview.tex}
+            }
+        \end{center}
+      \end{column}
+      \begin{column}{0.49\textwidth}
+        \begin{center}{\scriptsize  \textbf{\textit{Divergence}}}
+          \includegraphics[width=1\textwidth]{figures/diverge}
+        \end{center}
+      \end{column}
+    \end{columns}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Abstraction}
+  \begin{block}{}%{\textit{Well, not quite ...}}
+    \begin{columns}
+      \begin{column}{0.45\textwidth}
+        \begin{center}{\scriptsize  \textbf{\textit{Divergence}}}
+          \includegraphics[width=1\textwidth]{figures/diverge}
+        \end{center}
+      \end{column}
+      \begin{column}{0.12\textwidth}
+        \begin{center}
+          \alert{$\xrightarrow[]{\small{abstraction}}$}
+        \end{center}
+      \end{column}
+      \begin{column}{0.45\textwidth}
+        \begin{center}{\scriptsize \textbf{\textit{Convergence}}}
+          \includegraphics[width=1\textwidth]{figures/stutter-free}
+        \end{center}
+      \end{column}
+    \end{columns}
+  \end{block}
+    \[
+      A_k := abstraction(\observation[k])
+      \]
+\end{frame}
+
+\begin{frame}
+  \frametitle{Convergence Property}
+  % \begin{block}{}
+  %   \emph{An OS $\OS$ over a \alert{finite} domain always converges.}
+  % \end{block}
+  \begin{block}{}
+    \begin{center}
+      % {\rhand} \emph{$\OS$ converges $\not\Rightarrow$ Its domain is finite!}
+      \emph{An OS $\OS$ over a \alert{finite} domain always converges.}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Stuttering}
+  \begin{block}{}%{\textit{Well, not quite ...}}
+    \begin{columns}
+      \begin{column}{0.45\textwidth}
+        \begin{center}{\scriptsize  \textbf{\textit{Divergence}}}
+          \includegraphics[width=1\textwidth]{figures/diverge}
+        \end{center}
+      \end{column}
+      \begin{column}{0.12\textwidth}
+        \begin{center}
+          \alert{$\xrightarrow[]{\small{abstraction}}$}
+        \end{center}
+      \end{column}
+      \begin{column}{0.45\textwidth}
+        \begin{center}{\scriptsize \textbf{\textit{Stuttering}}}
+          \includegraphics[width=1\textwidth]{figures/stuttering}
+        \end{center}
+      \end{column}
+    \end{columns}
+    \[
+      A_k := abstraction(\observation[k])
+      \]
+  \end{block}
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Challenges in Convergence Detection}
+%   \only<1>{
+%     \begin{block}{\textit{But why ...}}
+%       \begin{columns}
+%         \begin{column}{0.45\textwidth}
+%           \begin{center}{\scriptsize  \textbf{\textit{divergence?}}}
+%             \includegraphics[width=1\textwidth]{figures/diverge}
+%           \end{center}
+%         \end{column}
+%         \begin{column}{0.45\textwidth}
+%           \begin{center}{\scriptsize \textbf{\textit{stuttering?}}}
+%             \includegraphics[width=1\textwidth]{figures/stuttering}
+%           \end{center}
+%         \end{column}
+%       \end{columns}
+%     \end{block}}
+%   \only<2>{
+%     \begin{block}{\textit{Because ...}}
+%       \begin{columns}
+%         \begin{column}{0.45\textwidth}
+%           \begin{center}{\scriptsize  \textbf{\textit{divergence}}}
+%             \includegraphics[width=1\textwidth]{figures/diverge}
+%           \end{center}
+%         \end{column}
+%         \begin{column}{0.45\textwidth}
+%           \begin{center}{\scriptsize \textbf{\textit{stuttering}}}
+%             \includegraphics[width=1\textwidth]{figures/stuttering}
+%           \end{center}
+%         \end{column}
+%       \end{columns}
+%     \begin{columns}
+%       \begin{column}{0.45\textwidth}
+%         \begin{center}
+%           {\scriptsize \textbf{\textit{\alert{infinite domain ...}}}}
+%         \end{center}
+%       \end{column}
+%       \begin{column}{0.45\textwidth}
+%         \begin{center}
+%           {\scriptsize \textbf{\textit{\alert{abstraction, information lost ...}}}}
+%         \end{center}
+%       \end{column}
+%     \end{columns}
+%     \end{block}}
+% \end{frame}
+
+\begin{frame}
+  \frametitle{Convergence}
+  \only<1>{
+    \begin{block}{}%{\textit{Two Possibilities}}
+      \begin{columns}
+        \begin{column}{0.45\textwidth}
+          \begin{center}{\scriptsize  \textbf{\textit{stuttering}}}
+            \includegraphics[width=1\textwidth]{figures/stt}
+          \end{center}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+          \begin{center}{\scriptsize \textbf{\textit{stutter-free}}}
+            \includegraphics[width=1\textwidth]{figures/sfr}
+          \end{center}
+        \end{column}
+      \end{columns}
+    \end{block}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{A Refined Scheme}
+  \centering
+  \resizebox{0.8\textwidth}{!}{
+  \begin{tikzpicture}[%
+    >=stealth,              % Nice arrows; your taste may be different
+    start chain=going below,    % General flow is top-to-bottom
+    node distance=6mm and 60mm, % Global setup of box spacing
+    every join/.style={norm}]
+    \tikzset{
+      base/.style={draw, on chain, on grid, align=center, minimum height=4ex},
+      proc/.style={base, rectangle, rounded corners},
+      test/.style={base, diamond, aspect=2, rounded corners},
+      term/.style={proc, draw=none},
+      norm/.style={->, draw}
+    }
+    \node [term] (p0)
+    {program $\pds$,
+     property $\property$\\
+     resource parameter $i:=0$
+    };
+    \node [proc, join] (Ok) {construct $\observation[i]$};
+    \node [test, join] (violation) {$\observation[i]$ witnesses\\ a violation of $\property$?};
+    \node [term, fill=red!60] (incorrect) {$\pds \not\models \property$};
+    \node [proc, left=of Ok](kpp)  {$i := i + 1$};
+    \node [test, left=of violation, fill=blue!20] (converge) {$\observation[i-1] = \observation[i]$? };
+    \node [test, left=of converge, fill=blue!20] (stutter) {sequence {\scriptsize $\OS$}\\ \alert{stutters} at $i$?};
+    \node [term, fill=green!60] (correct) {$\pds \models \property$};
+
+    \path (converge.north) to node [xshift=0.8em,yshift=0em] {\emph{no}} (kpp); 
+    \draw [->] (converge.north) -- (kpp);
+    \path (converge.west) to node [xshift=2.5em,yshift=3em] {\emph{yes}} (correct); 
+    \draw [->] (converge.west) -- (stutter);
+    \path (violation.west) to node [xshift=0em,yshift=0.5em] {\emph{no}} (converge); 
+    \draw [->] (violation.west) -- (converge);
+    \path (violation.south) to node [xshift=1em,yshift=0em] {\emph{yes}} (incorrect); 
+    \draw [->] (violation.south) -- (incorrect);
+    \path (stutter.south) to node [xshift=-13.8em,yshift=0.5em] {\emph{no}} (incorrect); 
+    \draw [->] (stutter.south) -- (correct);
+    \path (stutter.north) to node [xshift=-8.8em,yshift=7.7em] {\emph{yes}} (incorrect);
+    \draw [-] (stutter.north) -- (-12,-1.5);
+    \draw [->] (-12,-1.5) -- (kpp.west);
+    \draw [->,shorten <=1pt,shorten >=1pt] (kpp.east) -- (Ok);
+  \end{tikzpicture}
+}
+% \vskip10pt
+% {\bhand} \emph{\scriptsize the case of \alert{stutter-free} is subsumed}
+\end{frame}
+
+\section{Application: Context-UnBounded Analysis}
+\begin{frame}
+  \frametitle{Context-UnBounded Analysis (CUBA)}
+  \begin{block}{\emph{Target is ...}}
+    \vskip2pt
+    \emph{shared-memory multi-threaded \alert{recursive} programs.}
+    \centering
+  \end{block}
+  \begin{block}{\emph{Resource is ...}}
+    \vskip2pt
+    \emph{the number of \alert{contexts} in the executions.}
+    \centering
+  \end{block}
+  \begin{block}{\emph{Observation is ...}}
+    \vskip2pt
+    \emph{the set of \alert{reachable} program states w.r.t. $k$ contexts.}
+    \centering
+  \end{block}
+  \begin{block}{\emph{Analysis is ...}}
+    \vskip2pt
+    \emph{to check the reachability of \alert{bad} states.}
+    \centering
+  \end{block}
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Operational Model}
+%   \only<1>{
+%     \begin{block}{\emph{Pushdown System (PDS)}}
+%       \vskip4pt
+%       \emph{A PDS $\pds$ is a tuple $(\pdsshareds,\alphabet, \pdstranss, \pdsinitstate)$, where 
+%         \begin{itemize}
+%         \item $\pdsshareds$ is a set of states;
+%         \item $\alphabet$ a finite stack alphabet;
+%         \item $\pdstranss \subseteq (\pdsshareds \times \alphabetwithempty) \times (\pdsshareds \times \alphabetmaxtwo)$,
+%           $\alphabetwithempty = \alphabet \union
+%           \{\emptyword\}$ and $\alphabetmaxtwo = \{\word \in \Sigma^* \st |\word| \atm 2\}$
+%         \item $\pdsinitstate \in \pdsshareds$ is the initial shared state. 
+%         \end{itemize}
+%       }
+%     \end{block}
+%   }
+%   \only<2>{
+%     \begin{block}{\emph{States}}
+%       \vskip4pt
+%       \emph{A state of $\pds$ is an element of $\pdsshareds \times \alphabet$.}
+%     \end{block}
+%     \begin{block}{}%{\emph{Vividly}}
+%         \begin{center}
+%           \includegraphics[width=0.3\textwidth]{figures/brain/pds-state}
+%         \end{center}
+%     \end{block}
+%   }
+% \end{frame}
+
+ \begin{frame}
+  \frametitle{Operational Model}
+  \only<1>{
+    \begin{block}{\emph{Concurrent Pushdown System (CPDS)}}
+      \vskip2pt
+      \emph{A CPDS $\pds^n$
+        is a collection of $n$ PDS $\pds_i = (\pdsshareds,\alphabet_i,\pdstranss_i,\pdsinitstate)$, $1 \atm i \atm n$, where 
+        \begin{enumerate}[$\bullet$]
+        \item $\pdsshareds$ is a finite set of \alert{shared} states;
+        \item $\alphabet_i$ is a finite set of \alert{local} states;
+        \item $\pdstranss_i \subseteq (\pdsshareds \times \alphabet_i^{\atm 1}) \times (\pdsshareds \times \alphabet_i^{\atm 2})$,
+          $\alphabet_i^{\atm 1} = \alphabet_i \union
+          \{\emptyword\}$ and $\alphabet_i^{\atm 2} = \{\word \in \alphabet_i^* \st |\word| \atm 2\}$;
+        \item $\pdsinitstate \in \pdsshareds$ is the initial shared state. 
+        \end{enumerate}
+        % The set $\pdsshareds$ of shared states is the same for all $\pds_i$.
+      }
+    \end{block}
+  }
+  \only<2>{
+    \begin{block}{\emph{Semantics}}
+        \begin{center}
+          \includegraphics[width=.95\textwidth]{figures/brain/semantics}
+        \end{center}
+    \end{block}
+  }
+  \only<3>{
+    \begin{block}{\emph{States}}
+      \vskip4pt
+      \emph{A \alert{global state} of a CPDS is an element of $\pdsshareds \times \alphabet_1^* \times \ldots \times \alphabet_n^*$, written in angle brackets: $\config q {\range[]{\word_1}{\word_n}}$.}
+    \end{block}
+    \begin{block}{\emph{For instance}}
+        \begin{center}
+          \includegraphics[width=0.4\textwidth]{figures/brain/cpds-state}
+        \end{center}
+    \end{block}
+  }
+  \only<4>{
+    \begin{block}{\emph{Executions}}
+    \[
+    \begin{array}{llll}
+      Thread\ A:\ \underbrace{\NO \rightarrow ... \rightarrow \NO \rightarrow}_{context} & &   \underbrace{\NO \rightarrow ... \rightarrow \NO \rightarrow}_{context} &\\
+      Thread\ B:\ &  \underbrace{\NO \rightarrow ... \rightarrow \NO \rightarrow}_{context} & & \\
+      Thread\ C:\ & & & \underbrace{\NO \rightarrow ... \rightarrow \NO \rightarrow}_{context} 
+    \end{array}
+    \]
+    \end{block}
+    \begin{block}{}%{\emph{Resource is }}
+        \begin{center}
+          \emph{resource := \alert{contexts}}
+        \end{center}
+    \end{block}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Problem Statement}
+  \only<1>{
+    \begin{block}{\emph{A state is reachable if ...}}
+      \[
+        \begin{array}{ll}
+          \underbrace{\NO}_{\textcolor{green!50!black!80}{initial}} \longrightarrow  \NO \longrightarrow \NO \longrightarrow \NO \longrightarrow ... \longrightarrow \NO \longrightarrow \underbrace{\YES}_{target} & \\
+        \end{array}
+      \]
+    \end{block}
+    \begin{block}{\emph{Safety as reachability}}
+        \begin{center}
+          \includegraphics[width=0.5\textwidth]{figures/brain/reachability}
+        \end{center}
+    \end{block}
+  }
+  \only<2>{
+    \begin{block}{\emph{Observation is ...}}
+      {\bhand} \emph{$\reached[k]$ = the set of states reachable within $k$ contexts.}
+    \end{block}
+    \begin{block}{}
+      \begin{center}
+        \emph{$\reached[k]$ can be \alert{infinite}~[CAV'00],} \\
+        \emph{but,} \\
+        \emph{$\reached[k]$ can be \alert{finitely} represented~[TACAS'05].}
+      \end{center}
+    \end{block}
+  }
+\end{frame}
+\begin{frame}
+  \frametitle{(Un-)Decidability}
+  \only<1>{
+    \begin{block}{}
+      \begin{center}
+        {\color{blue}\ding{43}} {\it\bf Reachability of CPDS is \alert{undecidable}~[TOPLAS'00].}
+      \end{center}
+    \end{block}
+    \begin{block}{\emph{But}}
+      \begin{center}
+        {\color{blue}\ding{43}} {\it\bf Context-\alert{bounded} reachability of CPDS is \alert{decidable}~[TACAS'05].}
+      \end{center}
+    \end{block}
+  }
+  % \only<2>{
+  %   \begin{block}{\emph{Context-\alert{bounded} reachability of CPDS is \alert{decidable} because ...}}
+  %     \vskip4pt
+  %     {\bhand} \emph{$\reached[k]$ can be \alert{finitely} represented~[TACAS'05].}
+  %   \end{block}
+  % }
+\end{frame}
+
+\begin{frame}
+  \frametitle{CUBA using Observation Sequences of Global States}
+  \begin{block}{}
+    {\bhand} \emph{$\OS := \reached[0], \reached[1],\reached[2], \ldots$, where each state in $\reached[k]$ is of the form:}
+    \begin{center}
+      \includegraphics[width=0.3\textwidth]{figures/brain/cpds-state}
+    \end{center}
+    \vskip10pt
+      \begin{center}
+        \emph{$\OSone$ is defined over an \alert{infinite} domain and \alert{stutter-free}~[PLDI'18]}
+      \end{center}
+    \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example}
+  \only<1>{
+    \begin{block}{}
+      \vspace{-6pt}
+      \begin{columns}
+        \begin{column}{0.35\textwidth}
+          \scriptsize{\hspace{6pt}\emph{Shared states:}}
+          \[\scriptsize{
+              \begin{array}{rl}
+              \pdsshareds =& \{ \ 0, 1, 2, 3 \ \} \\[3em]
+
+              \mbox{\emph{Thread 1:}} & \\
+              \alphabet_1 = & \{ \ 1, 2 \ \} \\
+              \pdstranss_{1} = &                  \{ \ f_1:     \threadstate 0 1  \pdstranssymbol \threadstate 1 2 \ , \\
+                            & \pos[r]{$f_2:$}{$\{ \ f_1:$} \ \threadstate 3 2  \pdstranssymbol \threadstate 0 1 \ \} \\[3em]
+
+              \mbox{\emph{Thread 2:}} & \\
+              \alphabet_2 = & \{ \ 4, 5, 6 \ \}\\
+              \pdstranss_{2} = &                  \{ \ b_1:     \threadstate 0 4  \pdstranssymbol \threadstate 0 {\emptystack} \ , \\
+                          & \pos[r]{$b_2:$}{$\{ \ b_1:$} \ \threadstate 1 4  \pdstranssymbol \threadstate 2 5 \ , \\
+                          & \pos[r]{$b_3:$}{$\{ \ b_3:$} \ \threadstate 2 5  \pdstranssymbol \threadstate 3 {4 6} \ \} \\[3em]
+              \pdsinitstate = & 0
+            \end{array}}\]
+        \end{column}
+        \begin{column}{.65\textwidth}
+          \input{figures/os11}
+        \end{column}
+      \end{columns}
+    \end{block}}
+  \only<2>{
+    \begin{block}{}
+      \vspace{-6pt}
+      \begin{columns}
+        \begin{column}{0.35\textwidth}
+          \scriptsize{\hspace{6pt}\emph{Shared states:}}
+          \[\scriptsize{
+              \begin{array}{rl}
+              \pdsshareds =& \{ \ 0, 1, 2, 3 \ \} \\[3em]
+
+              \mbox{\emph{Thread 1:}} & \\
+              \alphabet_1 = & \{ \ 1, 2 \ \} \\
+              \pdstranss_{1} = &                  \{ \ f_1:     \threadstate 0 1  \pdstranssymbol \threadstate 1 2 \ , \\
+                            & \pos[r]{$f_2:$}{$\{ \ f_1:$} \ \threadstate 3 2  \pdstranssymbol \threadstate 0 1 \ \} \\[3em]
+
+              \mbox{\emph{Thread 2:}} & \\
+              \alphabet_2 = & \{ \ 4, 5, 6 \ \}\\
+              \pdstranss_{2} = &                  \{ \ b_1:     \threadstate 0 4  \pdstranssymbol \threadstate 0 {\emptystack} \ , \\
+                          & \pos[r]{$b_2:$}{$\{ \ b_1:$} \ \threadstate 1 4  \pdstranssymbol \threadstate 2 5 \ , \\
+                          & \pos[r]{$b_3:$}{$\{ \ b_3:$} \ \threadstate 2 5  \pdstranssymbol \threadstate 3 {4 6} \ \} \\[3em]
+              \pdsinitstate = & 0
+            \end{array}}\]
+        \end{column}
+        \begin{column}{.75\textwidth}
+          \centering
+          \input{figures/os12}
+        \end{column}
+      \end{columns}
+    \end{block}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{How to Proceed?}
+  \begin{block}<1->{\emph{Give up?}}
+    \vskip4pt
+    % \emph{If your conjecture is not true, find assumptions under which it is true.}\linebreak
+    % \begin{flushright}
+    %   \textbf{-- XXXX}
+    % \end{flushright}
+  \end{block}
+  \begin{block}<2>{\emph{Well, do not give up so quickly. Because we know ...}}
+  \end{block}
+  \begin{block}<2>{\emph{Convergence Property}}
+    \vskip4pt
+    \begin{center}
+      \emph{An OS $\OS$ over a \alert{finite} domain always converges.}
+    \end{center}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{CUBA using Observation Sequences of Visible State}
+  \only<1>{
+    \begin{block}{\emph{Project global states to a finite domain ...}}
+      \vskip4pt
+      {\color{blue}\ding{43}} \emph{by cutting off tails of stacks.}
+    \end{block}
+    \begin{block}{}%{\emph{Vividly}}
+        \begin{center}
+          \includegraphics[width=0.9\textwidth]{figures/brain/topping}
+        \end{center}
+    \end{block}
+  }
+
+  \only<2>{
+    \begin{block}{\emph{Project global states to a finite domain ...}}
+      \vskip4pt
+    \begin{center}
+      \includegraphics[width=0.3\textwidth]{figures/brain/visible-state}
+    \end{center}
+    \end{block}
+    \begin{block}{\emph{Visible states}}
+      \begin{enumerate}[\bhand]
+        \item \emph{suffice to express many safety properties, e.g. various assertions, data race, race condition, etc}.
+      \end{enumerate}
+    \end{block}}
+
+  \only<3>{
+  \begin{block}{}
+    {\bhand} \emph{$\OS := \visible[0], \visible[1],\visible[2], \ldots$, where each state in $\visible[k]$ is of the form:}
+    \begin{center}
+      \includegraphics[width=0.3\textwidth]{figures/brain/visible-state}
+    \end{center}
+    \vskip10pt
+      \begin{center}
+        \emph{$\OSthree$ is guaranteed to \alert{converge}.}\\
+        \[
+          \visible[k] := \topmap{\reached[k]}
+          \]
+      \end{center}
+    \end{block}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example Revisited}
+  \only<1>{
+    \begin{block}{\emph{\scriptsize{Can we answer the convergence of visible state sequence easily?}}}
+      \vspace{0pt}
+      \begin{columns}
+        \begin{column}{1\textwidth}
+          \input{figures/os31}
+        \end{column}
+      \end{columns}
+    \end{block}
+  }
+  \only<2>{
+    \begin{block}{\emph{\scriptsize{Not really ...}}}
+      \vspace{0pt}
+      \begin{columns}
+        \begin{column}{1\textwidth}
+          \input{figures/os32}
+        \end{column}
+      \end{columns}
+    \end{block}
+  }
+  \only<3>{
+    \begin{block}{\emph{\scriptsize{But, an observation on generators}}}
+      \vspace{0pt}
+      \begin{columns}
+        \begin{column}{0.35\textwidth}
+          \begin{center}
+            \includegraphics[width=.8\textwidth]{figures/cpds}
+          \end{center}
+        \end{column}
+        \begin{column}{1\textwidth}
+          \input{figures/os33}
+        \end{column}
+      \end{columns}
+    \end{block}
+  }  
+\end{frame}
+
+\begin{frame}
+  \frametitle{Stuttering Detection}
+  \begin{block}{}
+    \begin{columns}
+      \begin{column}{0.49\textwidth}
+        \begin{center}{\textbf{\textit{Stuttering}}}
+          \includegraphics[width=1\textwidth]{figures/generator}
+        \end{center}
+      \end{column}
+      \begin{column}{0.49\textwidth}
+        \begin{center}{\textbf{\textit{Properties~[PLDI'18]}}}
+          \vskip20pt
+          \begin{enumerate}[\bhand]
+          \item<1-> \emph{\small{generators are of special form\\ \alert{$\Rightarrow$} can be statically approximated}}
+            \vskip25pt
+          \item<2-> \emph{\small{all generators have been reached \\ \alert{$\Rightarrow$} OS converges}}
+            \vskip25pt
+          \item<3> \emph{\small{any overapproximation suffices}}
+          \end{enumerate}
+        \end{center}
+      \end{column}
+    \end{columns}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Algorithm}
+  \centering
+  \resizebox{0.8\textwidth}{!}{
+  \begin{tikzpicture}[%
+    >=stealth,              % Nice arrows; your taste may be different
+    start chain=going below,    % General flow is top-to-bottom
+    node distance=6mm and 60mm, % Global setup of box spacing
+    every join/.style={norm}]
+    \tikzset{
+      base/.style={draw, on chain, on grid, align=center, minimum height=4ex},
+      proc/.style={base, rectangle, rounded corners},
+      test/.style={base, diamond, aspect=2, rounded corners},
+      term/.style={proc, draw=none},
+      norm/.style={->, draw}
+    }
+    \node [term] (p0)
+    {program $\pds$,
+     property $\property$\\
+     resource parameter $i:=0$
+    };
+    \node [proc, join] (Ok) {construct $\visible[i]$};
+    \node [test, join] (violation) {$\visible[i]$ witnesses\\ a violation of $\property$?};
+    \node [term, fill=red!60] (incorrect) {$\pds \not\models \property$};
+    \node [proc, left=of Ok](kpp)  {$i:= i + 1$};
+    \node [test, left=of violation, fill=blue!20] (converge) {$|\visible[i-1]| = |\visible[i]|$? };
+    \node [test, left=of converge, fill=red!20] (stutter) {$\gens \subseteq \visible[i]$?};
+    \node [term, fill=green!60] (correct) {$\pds \models \property$};
+
+    \path (converge.north) to node [xshift=0.8em,yshift=0em] {\emph{no}} (kpp); 
+    \draw [->] (converge.north) -- (kpp);
+    \path (converge.west) to node [xshift=1.5em,yshift=2.5em] {\emph{yes}} (correct); 
+    \draw [->] (converge.west) -- (stutter);
+    \path (violation.west) to node [xshift=0em,yshift=0.5em] {\emph{no}} (converge); 
+    \draw [->] (violation.west) -- (converge);
+    \path (violation.south) to node [xshift=0.8em,yshift=0em] {\emph{yes}} (incorrect); 
+    \draw [->] (violation.south) -- (incorrect);
+    \path (stutter.south) to node [xshift=-13.8em,yshift=.9em] {\emph{yes}} (incorrect); 
+    \draw [->] (stutter.south) -- (correct);
+    \path (stutter.north) to node [xshift=-8.8em,yshift=8.2em] {\emph{no}} (incorrect);
+    \draw [-] (stutter.north) -- (-12,-1.5);
+    \draw [->] (-12,-1.5) -- (kpp.west);
+    \draw [->,shorten <=1pt,shorten >=1pt] (kpp.east) -- (Ok);
+  \end{tikzpicture}
+}
+\vskip2pt
+$\gens := $\{\emph{reachable generators}\}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Example Revisited}
+  \begin{block}{}
+    \vspace{-4pt}
+      $\scriptsize{\gens =  \{ \config 0 {1,\emptystack}, \config 0 {1,6} \}}$
+    \begin{columns}
+      \begin{column}{.95\textwidth}
+          \input{figures/os34}
+      \end{column}
+    \end{columns}
+  \end{block}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Empirical Evaluation}
+  \only<1>{
+    \begin{block}{\emph{Performance}}
+      \vskip6pt
+      % \includegraphics[width=\textwidth]{figures/exp-table}
+      \input{figures/exp-full-slides}
+    \end{block}}
+  % \only<2>{
+  %   \begin{block}{vs \JMoped~[SPIN'08]}
+  %     \vskip2pt
+  %     \includegraphics[width=\textwidth]{figures/exp-comp}
+  %   \end{block}
+  % }
+\end{frame}
+
+\section{Proposed Work: Applications and Beyond}
+\begin{frame}
+  \frametitle{Queue-Parameterized Analysis}
+  \only<1>{
+  \begin{block}{\emph{Target is ...}}
+    \centering
+    \vskip2pt
+    \emph{message-passing programs.}
+  \end{block}
+  \begin{block}{\emph{Resource is ...}}
+    \centering
+    \vskip2pt
+    \emph{the size of \alert{message queues}.}
+  \end{block}
+  \begin{block}{\emph{Observation is ...}}
+    \centering
+    \vskip2pt
+    \emph{the set of \alert{reachable} program states w.r.t. the size of queue within $k$.}
+  \end{block}
+  \begin{block}{\emph{Analysis is ...}}
+    \centering
+    \vskip2pt
+    \emph{to check the reachability of \alert{bad} states.}
+  \end{block}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Motivation}
+  % \only<1>{
+  %   \begin{block}{\emph{Why message passing programs? Because ...}}
+  %     \vskip4pt
+  %     % \begin{center}
+  %       {\bhand} \emph{they are widely implemented in distributed systems, and }\\
+  %       {\bhand} \emph{ensuring their safety is desirable.}
+  %     % \end{center}
+  %   \end{block}}   
+  \only<1>{
+    \begin{block}{\emph{Why message queues? Because they are ...}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]
+      \item \emph{a key \alert{synchronization} mechanism;}
+      \item \emph{a key reason to generate \alert{infinite} state space;}
+      \item \emph{a key reason to cause \alert{undecidability} of reachabililty analysis.}
+      \end{enumerate}
+    \end{block}
+    \begin{block}{\emph{Bounding message queues gives us ...}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]
+      \item \emph{an easier problem:}\\
+        % \alert{$\Rightarrow$} \emph{$\reached[k]$ is \alert{finite} and \alert{computable}.}
+        % \alert{$\Rightarrow$}
+        \emph{\scriptsize{Queue-\alert{bounded} reachability analysis of message passing programs is often \alert{decidable}}.}
+      \end{enumerate}
+    \end{block}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Our Plan: Theory Investigation}
+  \only<1>{
+    \begin{block}{\emph{Step 1: Define observation sequences}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]        
+      \item \emph{$\OS := \reached[0], \reached[1],\reached[2], \ldots$.} \\
+       \alert{$\Rightarrow$} \emph{\scriptsize $\reached[k]$ := the set of reachable states when \alert{message queues} are bounded by $k$.}
+      \item \emph{Projecting $\reached[k]$ to a smaller finite domain ...}
+      \end{enumerate}
+    \end{block}
+  } 
+  \only<2>{
+    \begin{block}{\emph{Step 2: Convergence detection}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]
+      \item \emph{Message queues are quite different from contexts.}\\
+        \alert{$\Rightarrow$} \emph{How to proceed?}
+      \end{enumerate}
+    \end{block}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Our Plan: Empirical Evaluation}
+  \only<1>{
+    \begin{block}{\emph{We will ...}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]
+      \item \emph{evaluate our approach on an extensive collection of P programs~[PLDI'13].}
+      \end{enumerate}
+      % \alert{$\Rightarrow$} \emph{Access-bounded reachability analysis of CPDS is \alert{decidable}.}
+    \end{block}
+  }
+\end{frame}
+
+\section{Conclusion and Schedule}
+\begin{frame}
+  \frametitle{Conclusion}
+  \only<1>{
+    \begin{block}{\emph{We target ...}}
+      \vskip2pt
+      \emph{resource-parameterized programs.}
+      \centering
+    \end{block}
+    \begin{block}{\emph{We propose ...}}
+      \vskip2pt
+      \emph{a uniform paradigm of observation sequences.}
+      \centering
+    \end{block}}
+  \only<2>{
+    \begin{block}{\emph{The paradigm ...}}
+      \vskip2pt
+      \centering
+      \resizebox{0.5\textwidth}{!}{
+        \input{figures/overview.tex}
+      }
+      \vskip15pt
+      \emph{\textbf{can lift the bug-finding technique to resource-unbounded analysis.}}
+    \end{block}}
+
+  \only<3>{
+    \begin{block}{\emph{We target ..}}
+      \vskip2pt
+      \emph{resource-parameterized programs.}
+      \centering
+    \end{block}
+    \begin{block}{\emph{We proposed ...}}
+      \vskip2pt
+      \emph{a uniform paradigm of observation sequences.}
+      \centering
+    \end{block}
+    \begin{block}{\emph{The paradigm can lift ...}}
+      \vskip2pt
+      \emph{the bug-finding technique to resource-unbounded analysis.}
+      \centering
+    \end{block}
+    \begin{block}{\emph{We applied it ...}}
+      \vskip2pt
+      \emph{to context-unbounded analysis.}
+      \centering
+    \end{block}
+    \begin{block}{\emph{We plan to ...}}
+      \vskip2pt
+      \emph{extend it to more applications.}
+      \centering
+    \end{block}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Schedule}
+  \only<1>{ 
+    \begin{block}{}
+      \begin{center}
+      \resizebox{15cm}{!}{
+        \begin{tabular}{rcl}
+          October 2018 & \hspace{5pt} & Proposal\\
+          October 2018 -- February 2019 & & Queue-parameterized analysis\\                                 
+          February 2019 -- May 2019    & & More applications\\ %Shared-Memory Access-Parameterized Analysis\\                               
+          May 2019 -- July 2019 & & Improving the scalability of our tools; writing dissertation \\
+          August 2019 && Defense                                 
+        \end{tabular}
+      }
+      \end{center}
+    \end{block}
+  }
+\end{frame}
+
+\subsection*{Thank You}
+\begin{frame}
+  \frametitle{Thank You}
+  \begin{block}{References}
+    \vskip4pt
+      \small{
+      \bibliographystyle{ieee}
+      \renewcommand{\section}[2]{\vskip 0.05em}
+      \begin{thebibliography}{1}\itemsep=-0.01em \setlength{\baselineskip}{0.4em}
+      \bibitem{R00} Ramalingam, G.: ``Context-sensitive synchronization-sensitive analysis is undecidable.'' In: ACM
+        Trans. Program. Lang. Syst. (2000)
+
+        \bibitem{TACAS05} Qadeer, S., Rehof, J.: ``Context-bounded model checking of concurrent software.'' In: TACAS. (2005)
+
+      \bibitem{ASPLOS08} Lu, S., Park, S., Seo, E., Zhou, Y.: ``Learning from mistakes: a comprehensive study on real
+          world concurrency bug characteristics.'' In: ASPLOS. (2008)
+
+       \bibitem{PLDI13} Desai, A., Gupta, V., Jackson, E., Qadeer, S., Rajamani, S., Zufferey, D.: ``P: Safe asynchronous event-driven programming.'' In: PLDI. (2013)
+
+      \bibitem{PLDI18} Liu, P., Wahl, T.: ``CUBA: Interprocedural context-unbounded analysis of concurrent programs.''
+        In: PLDI. (2018)
+      \end{thebibliography}}
+  \end{block}
+\end{frame}
+
+%==============================Ending main Section=============================%
+%==============================Backup slides=============================%
+% \peizun{
+\begin{frame}
+  \frametitle{Empirical Evaluation}
+  % \only<1>{
+  %   \begin{block}{Performance}
+  %     \vskip2pt
+  %     \includegraphics[width=\textwidth]{figures/exp-table}
+  %   \end{block}}
+  \only<1>{
+    \begin{block}{vs \JMoped~[SPIN'08]}
+      \vskip2pt
+      \includegraphics[width=\textwidth]{figures/exp-comp}
+    \end{block}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Shared-Memory Access-Parameterized Analysis}
+  \only<1>{
+  \begin{block}{\emph{Target is ...}}
+    \vskip2pt
+    \centering
+    \emph{shared-memory multi-threaded programs.}
+  \end{block}
+  \begin{block}{\emph{Resource is ...}}
+    \vskip2pt
+    \centering
+    \emph{the number of shared-memory accesses.}
+  \end{block}
+  \begin{block}{\emph{Observation is ...}}
+    \vskip2pt
+    \centering
+    \emph{the set of \alert{reachable} program states w.r.t. $k$ accesses.}
+  \end{block}
+  \begin{block}{\emph{Verification is ...}}
+    \vskip2pt
+    \centering
+    \emph{reduced to the reachability of \alert{bad} states.}
+  \end{block}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Motivation}
+  \only<1>{
+    \begin{block}{\emph{Why shared-memory accesses?}}
+    \end{block}}   
+  \only<2>{
+    \begin{block}{\emph{Reason 1}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]
+      \item \emph{Improper shared-memory accesses are a \alert{root cause}
+          of concurrency bugs}
+      \end{enumerate}      
+        \alert{$\Rightarrow$} \emph{\small{E.g., race condition, data race etc. }}
+    \end{block}
+    \begin{block}{\emph{Unfortunately,}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]
+      \item \emph{Analysis with \emph{unbounded} accesses is challenging}
+      \end{enumerate}
+    \end{block}} 
+  \only<3>{\begin{block}{\emph{Reason 2}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]
+      \item \emph{Have an easier problem if bounding the number of accesses}
+      \end{enumerate}
+      \alert{$\Rightarrow$} \emph{\small{Access-bounded reachability analysis of CPDS is \alert{decidable} [proved]}}\\
+      \alert{$\Rightarrow$} \emph{\small{Many bugs can be exposed with \alert{few} shared-memory accesses~[ASPLOS'08]}}
+    \end{block}
+    % \begin{block}{\emph{But, uncertainty still exists ...}}
+    %   \vskip4pt
+    %   \begin{enumerate}[{\bhand}]
+    %   \item \emph{Eliminating \alert{uncertainty} is desirable}
+    %   \end{enumerate}
+    % \end{block}
+  }
+\end{frame}
+
+\begin{frame}
+  \frametitle{Our Plan: Theory Investigation}
+  \only<1>{
+    \begin{block}{\emph{Step 1: Define observation sequences}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]        
+      \item \emph{$\OS := \reached[0], \reached[1],\reached[2], \ldots$.} \\
+        \alert{$\Rightarrow$} \emph{$\reached[k]$ = the set of states reachable within $k$ accesses.}
+      \item \emph{Projecting $\reached[k]$ to a finite domain ...}
+      \end{enumerate}
+    \end{block}
+  } 
+  \only<2>{
+    \begin{block}{\emph{Step 2: Convergence detection}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]
+      \item \emph{Based on similar convergence detection used in CUBA, and ...}
+      \end{enumerate}
+    \end{block}
+  }
+  \only<3>{
+    \begin{block}{\emph{Step 3: A decidable subclass}}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]
+      \item \emph{We will define a decidable subclass of shared-memory multi-threaded programs.}\\
+        \alert{$\Rightarrow$} \emph{What does this mean?}
+      \end{enumerate}
+    \end{block}}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Our Plan: Empirical Evaluation}
+  \only<1>{
+    \begin{block}{\emph{We will }}
+      \vskip4pt
+      \begin{enumerate}[{\bhand}]
+      \item \emph{evaluate our approach on an extensive collection of shared-memory multi-threaded programs.}
+      \end{enumerate}
+      % \alert{$\Rightarrow$} \emph{Access-bounded reachability analysis of CPDS is \alert{decidable}.}
+    \end{block}
+  }
+\end{frame}
+
+\peizun{
+\begin{frame}
+  \frametitle{Questions [for us only]}
+  \begin{block}{}
+    1. can you provide a uniform tool?\\
+
+    2. can you provide a guide to users, e.g. how to define k, Ok,  etc.? \\
+
+    3. So you have basically presented one solution to one problem (PLDI 2018).
+    How will you approach the othe problems (access-param., queue-param., etc)
+    -- all in the same way? does the PLDI approach generalize?
+  \end{block}
+\end{frame}}
+
+\end{document}

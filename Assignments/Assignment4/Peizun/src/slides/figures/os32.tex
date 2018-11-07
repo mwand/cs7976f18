@@ -1,0 +1,153 @@
+% \documentclass[preview, landscape]{standalone}
+
+% \usepackage{pgf}
+% \usepackage{tikz}
+% \usetikzlibrary{arrows,positioning}
+
+% \newcommand{\config}[2]{\langle{#1\!\mid\!#2}\rangle} % compare typesetting: $q|x,y$ vs $q\mid x,y$ vs $q\!\mid\!x,y$
+% \newcommand{\emptyword}  {\varepsilon}
+
+% \usepackage{bbm}
+% \usepackage{dsfont}
+% \begin{document}
+% \centerTwoOut{
+
+% \begin{minipage}{.20\textwidth}
+%   \[
+%     \begin{array}{lll}
+%       \pdsshareds & = & \{ \ 0, 1, 2, 3 \ \} \\[1em]
+
+%       \alphabet_1 & = & \{ \ 1, 2 \ \} \\
+%       \alphabet_2 & = & \{ \ 4, 5, 6 \ \}\\[1em]
+
+%       \pdstranss_{1} & = &                  \{ \ f_1:     \threadstate 0 1  \pdstranssymbol \threadstate 1 2 \ , \\
+%                      &   & \pos[r]{$f_2:$}{$\{ \ f_1:$} \ \threadstate 3 2  \pdstranssymbol \threadstate 0 1 \ \} \\[1em]
+%       \pdstranss_{2} & = &                  \{ \ b_1:     \threadstate 0 4  \pdstranssymbol \threadstate 0 {\emptystack} \ , \\
+%                      &   & \pos[r]{$b_2:$}{$\{ \ b_1:$} \ \threadstate 1 4  \pdstranssymbol \threadstate 2 5 \ , \\
+%                      &   & \pos[r]{$b_3:$}{$\{ \ b_3:$} \ \threadstate 2 5  \pdstranssymbol \threadstate 3 {4 6} \ \} \\[1em]
+%       \pdsinitstate  & = & 0
+%     \end{array}
+%   \]
+%   % initial state:
+%   % \[
+%   %   \config 0 {1,4}
+%   % \]
+% \end{minipage}
+% \hfill
+\begin{minipage}{1\textwidth}
+  \centering
+  \resizebox{.90\textwidth}{!}{
+    \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2.0cm, semithick, 
+      state/.style={minimum size=14pt,inner sep=-0.1pt,font=\small\rmfamily},
+      round/.style = {rounded corners=1.5mm,dashed }, font=\sffamily]
+      \tikzstyle{every state}=[minimum size=1mm]
+      \tikzstyle{selected} = [draw,line width=5pt,-,gray!60]
+      \begin{scope}[xshift=0cm,yshift=5cm]
+        \draw[round] (-5.0,0.50) rectangle (3.0,-0.5);
+        \node[] at (-4.6,-0.3) {$R_0$};
+        \draw[round] (-5.1,0.55) rectangle (3.1,-2.0);
+        \node[] at (-4.7,-1.8) {$R_1$};
+        \draw[round] (-5.2,0.60) rectangle (3.2,-3.5);
+        \node[] at (-4.8,-3.3) {$R_2$};
+        \draw[round] (-5.3,0.65) rectangle (3.3,-5.0);
+        \node[] at (-4.9,-4.8) {$R_3$};
+        \draw[round] (-5.4,0.70) rectangle (3.4,-6.5);
+        \node[] at (-5.0,-6.3) {$R_4$};
+        \draw[round] (-5.5,0.75) rectangle (3.5,-8.0);
+        \node[] at (-5.1,-7.8) {$R_5$};
+        \draw[round] (-5.6,0.80) rectangle (3.6,-9.5);
+        \node[] at (-5.2,-9.3) {$R_6$};
+        \draw[round] (-5.7,0.85) rectangle (3.7,-10.0);
+        \node[] at (-1.0,-9.8) {\bf ......};
+
+        \draw[round] (6.0,0.50) rectangle (10.0,-0.5);
+        \node[] at (6.3,-0.3) {$\visible[0]$};
+        \draw[round] (5.9,0.55) rectangle (10.1,-2.0);
+        \node[] at (6.2,-1.8) {$\visible[1]$};
+        \draw[round] (5.8,0.60) rectangle (10.2,-3.5);
+        \node[] at (6.1,-3.3) {$\visible[2]$};
+        \draw[round,name=B] (5.7,0.65) rectangle (10.3,-5.0);
+        \node[] at (6.0,-4.8) {$\visible[3]$};
+        \draw[round] (5.6,0.70) rectangle (10.4,-6.5);
+        \node[] at (5.9,-6.3) {$\visible[4]$};
+        \draw[round] (5.5,0.75) rectangle (10.5,-8.0);
+        \node[] at (5.8,-7.8) {$\visible[5]$};
+        \draw[round] (5.4,0.80) rectangle (10.6,-9.5);
+        \node[] at (5.7,-9.3) {$\visible[6]$};
+        \draw[round] (5.3,0.85) rectangle (10.7,-10.0);
+        \node[] at (8.1,-9.8) {\bf ......};
+
+        \node[](1) at (8.0,0.0) {$\config 0 {1,4}$};
+        \node[](2)[below =0.3cm of 1] {$\config 1 {2,4}$};
+        \node[](3)[below =0.1cm of 2] {$\config 0 {1,\emptyword}$};
+        \node[](4)[below =0.0cm of 3] {$\config 2 {2,5}$};
+        \node[](5)[below left  = -0.5mm of 4] {$\config 3 {2,4}$};
+        \node[](6)[below right = -0.5mm of 4] {$\config 1 {2,\emptyword}$};
+        \node[](7) at (8.0,-5.8) {$\config 0 {1,6}$};
+        \node[](8) [below = 0.7cm of 7] {$\config 1 {2,6}$};
+        \draw[->, >=latex', shorten >=2pt, bend left=45, thick, dashed] 
+        (2.9,0.3) to node[auto, swap] {$\mathcal T$}(6.1,0.3); 
+        \draw[->, >=latex', shorten >=2pt, bend left=45, thick, dashed] 
+        (3.0,-1.2) to node[auto, swap] {$\mathcal T$}(6.0,-1.2);
+        \draw[->, >=latex', shorten >=2pt, bend left=45, thick, dashed] 
+        (3.1,-2.7) to node[auto, swap] {$\mathcal T$}(5.9,-2.7);
+        \draw[->, >=latex', shorten >=2pt, bend left=45, thick, dashed]  
+        (3.3,-5.7) to node[auto, swap] {$\mathcal T$}(5.7,-5.7);
+        \draw[->, >=latex', shorten >=2pt, bend left=45, thick, dashed] 
+        (3.4,-7.2) to node[auto, swap] {$\mathcal T$}(5.6,-7.2);
+        
+        % k = 0
+        \node[state] (014) {$\config 0 {1,4}$};
+        % k = 1
+        \node[state] (124) [below left of  = 014] {$\config 1 {2,4}$};
+        \node[state] (01e) [below right of = 014] {$\config 0 {1,\emptyword}$};
+        % k = 2
+        \node[state] (225) [below = 1cm of 124] {$\config 2 {2,5}$};
+        \node[state] (12e) [below = 1cm of 01e] {$\config 1 {2,\emptyword}$};
+        \node[state] (3246) [left of  = 225] {$\config 3 {2,46}$};
+        % k = 3
+        \node[state,draw,color=red] (0146) [below = 1cm of 3246] {$\config 0 {1,46}$};
+        \node[state,draw,color=red] (1246) [right of  = 0146] {$\config 1 {2,46}$};
+        % k = 4
+        \node[state] (016) [below = 1cm of 0146] {$\config 0 {1,6}$};
+        \node[state] (2256) [right of  = 016] {$\config 2 {2,56}$};
+        \node[state] (32466) [right = 1.2cm of 2256] {$\config 3 {2,466}$};
+        % k = 5
+        \node[state] (01466) [below = 1cm of 32466] {$\config 0 {1,466}$};
+        \node[state] (12466) [left = 1.0cm of 01466] {$\config 1 {2,466}$};
+        \node[state] (126) [below = 1cm of 016] {$\config 1 {2,6}$};
+        % k = 6
+        \node[state] (0166)  [below = 1cm of 01466] {$\config 0 {1,66}$};
+        \node[state] (22566) [below = 1cm of 12466] {$\config 2 {2,566}$};
+        \node[state] (324666) [below = 1cm of 126] {$\config 3 {2,4666}$};
+
+
+        \draw [selected] (0146) -- (016);
+        \path[]
+        (014)  edge[left]     node {\scriptsize $f_1$} (124)
+        (014)  edge[right]     node {\scriptsize $b_1$} (01e)
+        (124)  edge[left]      node {\scriptsize $b_2$} (225)
+        (01e)  edge[right]     node {\scriptsize $f_1$} (12e)
+        (225)  edge[above]     node {\scriptsize $b_3$} (3246)
+        (3246) edge[left]      node {\scriptsize $f_2$} (0146)
+        (0146) edge[above]     node {\scriptsize $f_1$} (1246)
+        (0146) edge[left]      node {\scriptsize $b_1$} (016)
+        (1246) edge[right]     node {\scriptsize $b_2$} (2256)
+        (2256) edge[above]     node {\scriptsize $b_3$} (32466)
+        (32466)edge[right]     node {\scriptsize $f_2$} (01466)
+        (01466)edge[above]     node {\scriptsize $f_1$} (12466)
+        (016)  edge[left]      node {\scriptsize $f_1$} (126)
+        (12466)edge[left]      node {\scriptsize $b_2$} (22566)
+        (22566)edge[above]     node {\scriptsize $b_3$} (324666)
+        (01466)edge[left]      node {\scriptsize $b_1$} (0166);
+
+        \node[circle, draw, color=red, inner sep=2pt, minimum size=1pt] (c1) [below = 1cm of 6] {};
+        \node[circle, draw, color=red,inner sep=3pt,minimum size=1pt](c2) [above right = 0.5cm of c1] {};
+        \node[circle, draw, color=red,inner sep=4pt,minimum size=1pt](c3) [above right = 0.5cm of c2] {};
+        \node[circle, draw, color=red,inner sep=5pt,minimum size=1pt](c4) [above right = 0.5cm of c3] {};
+        
+        \node[cloud,draw,color=red] (stuttering) [above right = 0.5 of c4] {\emph{stuttering}};
+      \end{scope}
+    \end{tikzpicture}}
+\end{minipage}
+% \end{document}

@@ -1,0 +1,71 @@
+\tikzstyle{every state}=[minimum size=1mm]
+\tikzstyle{every accepting state}=[inner sep=0pt, minimum size=0pt]
+\tikzstyle{rename}=[state, fill=green!20]
+\tikzstyle{anonymize}=[state, fill=red!20]
+\resizebox {\textwidth} {!} {
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=1.8cm,
+  semithick, font=\tiny, minimum size=10pt]
+  \begin{scope}
+    \node[state]         (q0)   {$0$};
+    \node[accepting,state](sf)  [below right  of=q0]  {$\fsafinalstate$};
+    \node[state]         (q1)   [below left  of=sf]  {$1$};
+    \node[state]         (q3)   [above right of=sf]  {$3$};
+    \node[state]         (q2)   [below right of=sf]  {$2$};
+    \node[]         (caption)   [below right =0.1cm of q1] {$\fsa[1]$ for $\pds_1$ in \figureref{stuttering example}};
+    \path[]
+    (q0) edge              node[sloped,anchor=south] {$\emptyword,1,2$} (sf)
+    (q1) edge              node[sloped,anchor=south] {$\emptyword,1,2$} (sf)
+    (q2) edge              node[sloped,anchor=south] {$\emptyword,1,2$} (sf)
+    (q3) edge              node[sloped,anchor=south] {$\emptyword,1,2$} (sf);
+  \end{scope}
+  ...
+  \begin{scope}[shift={(4.5,0)}]
+    \node[state]         (q0)   {$0$};
+    \node[accepting,state](sf)  [below right  of=q0]  {$\fsafinalstate$};
+    \node[state]         (q1)   [below left  of=sf]  {$1$};
+    \node[state]         (q3)   [above right of=sf]  {$3$};
+    \node[state]         (q2)   [below right of=sf]  {$2$};
+    \node[state]         (s)   [below =0.8cm of q3]  {$\fsastate$};
+    \node[]         (caption)   [below right =0.1cm of q1] {$\fsa[2]$ for $\pds_2$ in \figureref{stuttering example}};
+
+    \path[]
+    (q0) edge              node[sloped,anchor=south] {$\emptyword,4,5,6$} (sf)
+    (q1) edge              node[sloped,anchor=south] {$\emptyword,4,5,6$} (sf)
+    (q2) edge              node[sloped,anchor=south] {$\emptyword,4,5,6$} (sf)
+    (q3) edge              node[sloped,anchor=south] {$\emptyword,4,5,6$} (sf)
+    (q3) edge              node[sloped,anchor=south] {$4$} (s)
+    (s) edge              node[sloped,anchor=south] {$6$} (sf);
+  \end{scope}
+  ...
+  \begin{scope}[shift={(10,0)}]
+    \node[state]           (q0)                     {$0$};
+    \node[state]           (q1)   [below of=q0]     {$1$};
+    \node[accepting,state] (sf)   [right = 1.6cm of q0]     {$\fsafinalstate$};
+    \node[state]           (s)   [right = 1.6cm of q1]     {$\fsastate$};
+    \node[]          (caption)   [below left of = s] {$\fsa[1]$ for $\pds_1$ in \figureref{A converging example}};
+
+    \path[]
+      (q0) edge             node[sloped,anchor=south] {$\emptyword,2,3,4,5$} (sf)
+      (q1) edge             node[sloped,anchor=south] {$\emptyword,2,3,4,5$} (sf)
+      (q1) edge             node[sloped,anchor=south] {$2,3,4,5$} (s)
+      (s) edge[loop below]  node {$4$} (s)
+      (s) edge[right]       node {$4$} (sf);
+      \draw (q0) .. controls  (-1.0,-2.9) .. node[below,sloped] {$2,3,4$} (s);
+  \end{scope}
+  ...
+  \begin{scope}[shift={(14.5,0)}]
+    \node[state]           (q0)                     {$0$};
+    \node[state]           (q1)   [below of=q0]     {$1$};
+    \node[accepting,state] (sf)   [right = 1.6cm of q0]     {$\fsafinalstate$};
+    \node[state]           (s)   [right = 1.6cm of q1]     {$\fsastate$};
+    \node[]          (caption)   [below left of = s] {$\fsa[2]$ for $\pds_2$ in \figureref{A converging example}};
+
+    \path[]
+      (q0) edge             node[sloped,anchor=south] {$\emptyword,6,7,8,9$} (sf)
+      (q1) edge             node[sloped,anchor=south] {$\emptyword,6,7,8,9$} (sf)
+      (q1) edge             node[sloped,anchor=south] {$6,7,8$} (s)
+      (s) edge[loop below]  node {$8$} (s)
+      (s) edge[right]       node {$8$} (sf);
+      \draw (q0) .. controls  (-1.0,-2.9) .. node[below,sloped] {$6,7,8,9$} (s);
+  \end{scope}
+\end{tikzpicture}}

@@ -1,0 +1,77 @@
+% Theorem-like environments. All theorems, lemmata, etc. are numbered
+% like equations, such that in effect there is only one counter to be
+% referred to.
+
+\newcommand{\defFullOrAbbrev}[2]{#1} % full name: Definition/definition
+% If you want abbreviated names like Def./def. in your output,
+% include the following in your input file:
+% \renewcommand{\defFullOrAbbrev}[2]{#2} % abbreviated names in Definitions
+
+\newtheorem{DEF}     {\defFullOrAbbrev{Definition} {Def.}}
+\newtheorem{ASS}[DEF]{\defFullOrAbbrev{Assumption} {Assn.}}
+\newtheorem{CLA}[DEF]{\defFullOrAbbrev{Claim}      {Cl.}}
+\newtheorem{CON}[DEF]{\defFullOrAbbrev{Conjecture} {Conj.}}
+\newtheorem{COR}[DEF]{\defFullOrAbbrev{Corollary}  {Cor.}}
+\newtheorem{EXA}[DEF]{\defFullOrAbbrev{Example}    {Ex.}}
+\newtheorem{LEM}[DEF]{\defFullOrAbbrev{Lemma}      {Lem.}}
+\newtheorem{OBS}[DEF]{\defFullOrAbbrev{Observation}{Obs.}}
+\newtheorem{PRO}[DEF]{\defFullOrAbbrev{Property}   {Prop.}}
+\newtheorem{REQ}[DEF]{\defFullOrAbbrev{Requirement}{Req.}}
+\newtheorem{THE}[DEF]{\defFullOrAbbrev{Theorem}    {Thm.}}
+
+% Proofs and results
+
+% \proof clashes with llncs,fac,...
+\renewcommand{\Proof}{\textbf{Proof}}                     % introducing a proof
+\newcommand{\explain}[2][\tab]{#1 \angles{\ \mbox{#2} \ }} % explanations in proofs in Dijkstra notation
+\newcommand{\eop}[1][3mm]{\eopBox \vspace{#1}}          % end of proof (box), followed by new paragraph. Use:
+                                                        % \begin{THE}
+                                                        %   Bla.
+                                                        % \end{THE}
+                                                        % \Proof: Bla.
+                                                        % This completes the proof.\eop
+                                                        %     <empty line in the text>
+                                                        % Next we ...
+
+\newcommand{\eopBox}{~\hfill$\Box$}                     % box at end of proof. Use only where new paragraph
+                                                        % is illegal or unwanted, as before another "section", etc. command
+
+% About the \eop family: ~ enforces blank before \Box, even if space is tight.
+% No space before \eop in the text, otherwise the line might be broken right before \eop!
+% To avoid indentation in paragraph after proof, use
+% "... completes the proof.\eop
+
+% \noindent
+% Next, ..."
+
+% If you have more space, use an indented proof environment:
+\newenvironment{PROOF}[1][\Proof:]{\begin{description} \item[#1]\mbox{}}{\end{description}}
+% Use:
+% \begin{THE}
+%   BLA.
+% \end{THE}
+% \begin{PROOF}
+%   % newline here if desired
+%   Bla Proof.\eop
+% \end{PROOF}
+%   <empty line optional, has no vertical space effect, but starts new paragraph and thus indents.>
+% Next we ...
+
+
+%When repeating theorems, say in order to export its proof to an appendix,
+%you want to reuse the original counter value. Do this as follows:
+
+%Main text:
+%\newcounterset{uniqueLabel}{\theDEF}
+%\begin{THE}
+%  \label{theorem: uniqueLabel}
+%  Bla
+%\end{THE}
+
+%Appendix:
+%\setcounter{DEF}{\theuniqueLabel}
+%\begin{THE}
+%  Bla
+%\end{THE}
+
+%Do not repeat the \label command in the second mention of the theorem.

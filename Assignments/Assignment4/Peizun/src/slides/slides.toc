@@ -1,0 +1,5 @@
+\beamer@sectionintoc {1}{Overview of the Research}{3}{0}{1}
+\beamer@sectionintoc {2}{A Paradigm: Observation Sequences}{18}{0}{2}
+\beamer@sectionintoc {3}{Application: Context-UnBounded Analysis}{26}{0}{3}
+\beamer@sectionintoc {4}{Proposed Work: Applications and Beyond}{52}{0}{4}
+\beamer@sectionintoc {5}{Conclusion and Schedule}{58}{0}{5}

@@ -1,0 +1,39 @@
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+  \begin{tikzpicture}[%
+    >=stealth,              % Nice arrows; your taste may be different
+    start chain=going below,    % General flow is top-to-bottom
+    node distance=6mm and 60mm, % Global setup of box spacing
+    every join/.style={norm}]
+    \tikzset{
+      base/.style={draw, on chain, on grid, align=center, minimum height=4ex},
+      proc/.style={base, rectangle, rounded corners},
+      test/.style={base, diamond, aspect=2, rounded corners},
+      term/.style={proc, draw=none},
+      norm/.style={->, draw}
+    }
+    \node [term] (p0)
+    {program $\pds$,
+      property $\property$\\
+      resource parameter $i:=0$
+    };
+    \node [proc, join] (Ok) {construct $\observation[i]$};
+    \node [test, join] (violation) {$\observation[i]$ witnesses\\ a violation of $\property$?};
+    \node [term, fill=red!60] (incorrect) {$\pds \not\models \property$};
+    \node [proc, left=of Ok](kpp)  {$i := i + 1$};
+    \node [test] (converge) {sequence {\scriptsize $\OS$}\\ \alert{converges} at $i$?};
+    \node [term, fill=green!60] (correct) {$\pds \models \property$};
+
+    \path (converge.north) to node [xshift=0.8em,yshift=0em] {\emph{no}} (kpp); 
+    \draw [->] (converge.north) -- (kpp);
+    \path (converge.south) to node [xshift=1em,yshift=0em] {\emph{yes}} (correct); 
+    \draw [->] (converge.south) -- (correct);
+    \path (violation.west) to node [xshift=0em,yshift=0.5em] {\emph{no}} (converge); 
+    \draw [->] (violation.west) -- (converge);
+    \path (violation.south) to node [xshift=1em,yshift=0em] {\emph{yes}} (incorrect); 
+    \draw [->] (violation.south) -- (incorrect);
+    \draw [->,shorten <=1pt,shorten >=1pt] (kpp.east) -- (Ok);
+  \end{tikzpicture}

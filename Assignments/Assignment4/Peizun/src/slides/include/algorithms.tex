@@ -1,0 +1,117 @@
+% Environments for writing algorithms.
+
+% Documentation: http://www.tug.org/texlive/Contents/live/texmf-dist/doc/latex/algorithms/algorithms.pdf
+
+% Example:
+
+%\usepackage[noend]{algorithmic}
+%\usepackage{algorithm}
+
+%\begin{algorithm}[htbp]       % can also use "H" which forces "here"
+%  \begin{algorithmic}[1]      % [1] = number every line. Leave out for no numbers
+%    \setcounter{ALC@line}{-1} % to start numbering with 0
+%    \REQUIRE $S$ with $S \not= \emptyset$
+%    \STMT \code{$S$ := 0} \COMMENT{this comment is in the same line as S := 0}
+%    \STMT {}              \COMMENT{this comment is on a line by itself}
+%    \WHILE {$A \not= 0$}
+%      \STMT \code{$A$ := $A$ + 1}
+%    \ENDWHILE
+%    \IF {$Y > X$}
+%      \STMT output $Y$
+%    \ELSIF {$Y < X$}
+%      \STMT output $X$
+%    \ELSE
+%      \STMT output "equal"
+%    \ENDIF
+%    \FOR {\code{$i$ := 0 to 10}}
+%      \STMT process $i$
+%    \ENDFOR
+%    \FOREACH {$i \in S$}
+%      \STMT process $i$
+%    \ENDFOR
+%    \STMT \plgoto 4
+%  \end{algorithmic}
+%  \caption{My first algorithm}
+%  \label{algorithm: first algorithm}
+%\end{algorithm}
+
+\algsetup{indent=1.3em}
+
+% Suggestion if horizontal space is an issue:
+%\algsetup{indent=1em}
+%\renewcommand{\algorithmicthen}{:}
+
+% Suggestion if vertical space is an issue:
+% Use the noend option to the algorithmic package.
+% Unfortunately, this removes the "end" statements from all algorithms.
+% If you want more flexibility, omit the noend directive and use the following hack
+% right before any algorithm that you want to type-set without the "end":
+% \renewcommand{\algorithmicendif} {\vspace*{-10pt}}
+% \renewcommand{\algorithmicendfor}{\vspace*{-10pt}}
+
+\newcommand{\plkeyword}[1]{\textbf{#1}}
+
+\newcommand{\commenthighlight}{\color{red}}
+\renewcommand{\algorithmiccomment}[1]{\hfill{\commenthighlight $\vartriangleright$ #1}}
+\newcommand{\LINECOMMENT}[1]{\STMT {\commenthighlight $\triangleright$ #1}}
+
+% Use the following for functions (as opposed to procedures with side effects)
+\renewcommand{\algorithmicrequire}{\plkeyword  {Input}:}
+\renewcommand{\algorithmicensure} {\plkeyword {Output}:}
+
+\newcommand{\LET}    {\STMT \pllet}
+\newcommand{\FOREACH}{\FORALL}
+
+\renewcommand{\algorithmicforall} {\plkeyword{for each}}
+
+\newcommand{\plgoto}  {\plkeyword{goto}}
+\newcommand{\pllet}   {\plkeyword{let}}
+\newcommand{\plif}    {\plkeyword{if}}
+\newcommand{\plthen}  {\plkeyword{then}}
+\newcommand{\plelse}  {\plkeyword{else}}
+\newcommand{\plwhile} {\plkeyword{while}}
+\newcommand{\pldo}    {\plkeyword{do}}
+\newcommand{\plto}    {\plkeyword{to}}
+\newcommand{\plreturn}{\plkeyword{return}}
+
+\newcommand{\qmarkop}[3]{( \ #1 \ ? \ #2 \ : \ #3 \ )} % for "( x>=0 ? sqrt(x) : 0 )"
+\newcommand{\code}[1]{\texttt{#1}}
+
+%How to write code fragments:
+
+%I recommend embedding code into \texttt{...} (= definition of \code{}). Within that, use \plkeyword
+%for PL keywords, and $...$ for variables names.
+
+%Example:
+
+%\code{$x_1$ := $x_1$ + 1; $y$++; \plgoto 4;}
+
+%This looks reasonable. An alternative is to embed _everything_ in $$, which
+%causes operators such as := and ++ to look strange, however. Another
+%alternative is to embed _everything_ using \verb. Compared to using \verb,
+%my recommendation has the following advantages:
+
+%(i) the font for variable names and symbols in code is the same as that
+%used in formulas in the rest of the document,
+
+%(ii) one can use latex commands for proper indexed variables as above,
+%as opposed to ugly x_1 notation,
+
+%(iii) \verb is sometimes illegal, such as in an argument to another latex
+%command.
+
+%Also, use := for assignment and = for equality (rather than the C
+%notation), to be able to use the same symbol = for equality in formulas in
+%the rest of the document. (An exception to this is explicit C code.)
+
+%If an expression has more math symbols than code operators, you can also
+%set everything in math mode and only convert the operators into code
+%notation, using these:
+
+\newcommand{\eq}  {\code{=}}
+\newcommand{\eqeq}{\code{==}}
+\newcommand{\assign}{\code{:=}}
+
+%Example: the following produce the same output EXCEPT for whitespace:
+%\code{$s$=$l$=$c$}
+%$s \eq l \eq c$

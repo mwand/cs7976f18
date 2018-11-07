@@ -1,0 +1,66 @@
+\newcommand{\refCapitalOrSmall}[3]{#1#3} % always capitalized: Definition/Def.
+%\renewcommand{\refCapitalOrSmall}[3]{#2#3} % not always capitalized: definition/def.
+
+\newcommand{\refFullOrAbbrev}[2]{#1} % full name: Definition/definition
+% If you want abbreviated names like Def./def. in your output,
+% include the following in your input file:
+\renewcommand{\refFullOrAbbrev}[2]{#2} % abbreviated names in references
+
+% Use:
+% \equationref  {cauchy} => "Equation (1)" or "equation (1)" or "Eq. (1)" or "eq. (1)" , depending on the settings of refCapitalOrSmall and refFullOrAbbrev
+% \Equationref  {cauchy} => "Equation (1)" or "Eq. (1)" , depending on the setting of refFullOrAbbrev
+% \equationref[]{cauchy} => "(1)" % use this to generate "In (1)" or "In Equat. (1)"
+
+% The following produce capitalized or non-capitalized reference names,
+% depending on the setting of the refCapitalOrSmall command. Use where the
+% English grammar suggests non-capitalization, e.g. intra-sentence
+\newcommand{\appendixref}   [2][!]{\genericref[#1] A a {\refFullOrAbbrev{ppendix}   {pp.}}  {appendix}   {#2}}
+\newcommand{\algorithmref}  [2][!]{\genericref[#1] A a {\refFullOrAbbrev{lgorithm}  {lg.}}  {algorithm}  {#2}}
+\newcommand{\chapterref}    [2][!]{\genericref[#1] C c {\refFullOrAbbrev{hapter}    {h.}}   {chapter}    {#2}}
+\newcommand{\corollaryref}  [2][!]{\genericref[#1] C c {\refFullOrAbbrev{orollary}  {or.}}  {corollary}  {#2}}
+\newcommand{\definitionref} [2][!]{\genericref[#1] D d {\refFullOrAbbrev{efinition} {ef.}}  {definition} {#2}}
+\newcommand{\exampleref}    [2][!]{\genericref[#1] E e {\refFullOrAbbrev{xample}    {x.}}   {example}    {#2}}
+\newcommand{\figureref}     [2][!]{\genericref[#1] F f {\refFullOrAbbrev{igure}     {ig.}}  {figure}     {#2}}
+\newcommand{\itemref}       [2][!]{\genericref[#1] I i {\refFullOrAbbrev{tem}       {tem}}  {item}       {#2}}
+\newcommand{\lemmaref}      [2][!]{\genericref[#1] L l {\refFullOrAbbrev{emma}      {em.}}  {lemma}      {#2}}
+\newcommand{\lineref}       [2][!]{\genericref[#1] L l {\refFullOrAbbrev{ine}       {ine}}  {line}       {#2}}
+\newcommand{\listingref}    [2][!]{\genericref[#1] L l {\refFullOrAbbrev{isting}    {ist.}} {listing}    {#2}}
+\newcommand{\observationref}[2][!]{\genericref[#1] O o {\refFullOrAbbrev{bservation}{bs.}}  {observation}{#2}}
+\newcommand{\partref}       [2][!]{\genericref[#1] P p {\refFullOrAbbrev{art}       {art}}  {part}       {#2}}
+\newcommand{\propertyref}   [2][!]{\genericref[#1] P p {\refFullOrAbbrev{roperty}   {rop.}} {property}   {#2}}
+\newcommand{\schemeref}     [2][!]{\genericref[#1] S s {\refFullOrAbbrev{cheme}     {cheme}}{scheme}     {#2}}
+\newcommand{\sectionref}    [2][!]{\genericref[#1] S s {\refFullOrAbbrev{ection}    {ect.}} {section}    {#2}}
+\newcommand{\tableref}      [2][!]{\genericref[#1] T t {\refFullOrAbbrev{able}      {able}} {table}      {#2}}
+\newcommand{\theoremref}    [2][!]{\genericref[#1] T t {\refFullOrAbbrev{heorem}    {hm.}}  {theorem}    {#2}}
+
+% The following always produce capitalized reference names. Use where the
+% English grammar requires capitalization, e.g. at beginning of sentence
+\newcommand{\Appendixref}   [1]{\Genericref{\refFullOrAbbrev{Appendix}   {App.}}  {appendix}   {#1}}
+\newcommand{\Algorithmref}  [1]{\Genericref{\refFullOrAbbrev{Algorithm}  {Alg.}}  {algorithm}  {#1}}
+\newcommand{\Chapterref}    [1]{\Genericref{\refFullOrAbbrev{Chapter}    {Ch.}}   {chapter}    {#1}}
+\newcommand{\Corollaryref}  [1]{\Genericref{\refFullOrAbbrev{Corollary}  {Cor.}}  {corollary}  {#1}}
+\newcommand{\Definitionref} [1]{\Genericref{\refFullOrAbbrev{Definition} {Def.}}  {definition} {#1}}
+\newcommand{\Exampleref}    [1]{\Genericref{\refFullOrAbbrev{Example}    {Ex.}}   {example}    {#1}}
+\newcommand{\Figureref}     [1]{\Genericref{\refFullOrAbbrev{Figure}     {Fig.}}  {figure}     {#1}}
+\newcommand{\Itemref}       [1]{\Genericref{\refFullOrAbbrev{Item}       {Item}}  {item}       {#1}}
+\newcommand{\Lemmaref}      [1]{\Genericref{\refFullOrAbbrev{Lemma}      {Lem.}}  {lemma}      {#1}}
+\newcommand{\Lineref}       [1]{\Genericref{\refFullOrAbbrev{Line}       {Line}}  {line}       {#1}}
+\newcommand{\Listingref}    [1]{\Genericref{\refFullOrAbbrev{Listing}    {List.}} {listing}    {#1}}
+\newcommand{\Observationref}[1]{\Genericref{\refFullOrAbbrev{Observation}{Obs.}}  {observation}{#1}}
+\newcommand{\Partref}       [1]{\Genericref{\refFullOrAbbrev{Part}       {Part}}  {part}       {#1}}
+\newcommand{\Propertyref}   [1]{\Genericref{\refFullOrAbbrev{Property}   {Prop.}} {property}   {#1}}
+\newcommand{\Schemeref}     [1]{\Genericref{\refFullOrAbbrev{Scheme}     {Scheme}}{scheme}     {#1}}
+\newcommand{\Sectionref}    [1]{\Genericref{\refFullOrAbbrev{Section}    {Sect.}} {section}    {#1}}
+\newcommand{\Tableref}      [1]{\Genericref{\refFullOrAbbrev{Table}      {Table}} {table}      {#1}}
+\newcommand{\Theoremref}    [1]{\Genericref{\refFullOrAbbrev{Theorem}    {Thm.}}  {theorem}    {#1}}
+
+\newcommand{\equationref}[2][!]{\Ifthen{\Equal{#1}!}{\refCapitalOrSmall E e {\refFullOrAbbrev{quation}{q.}}~}(\ref{equation: #2})}
+\newcommand{\Equationref}[1]                                                {\refFullOrAbbrev{Equation}{Eq.}~(\ref{equation: #1})}
+
+% For pages the general capitalization and spell-out scheme does not seem to be meaningful.
+% Redefine this individually if so inclined
+\newcommand{\mypageref}  [2][!]{\Ifthen{\Equal{#1}!}{page~}\pageref{page: #2}}
+\newcommand{\Mypageref}  [1]                       {{Page~}\pageref{page: #1}}
+
+\newcommand{\genericref} [6][!]{\Ifthen{\Equal{#1}!}{\refCapitalOrSmall{#2}{#3}{#4}~}\ref{#5: #6}} % args: [Append.~]{A}{a}{ppendix}{appendix}{Proofs}
+\newcommand{\Genericref} [3]                                                   {{#1}~\ref{#2: #3}} % args: {Appendix}{appendix}{Proofs}

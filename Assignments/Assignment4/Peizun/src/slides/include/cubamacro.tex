@@ -1,0 +1,188 @@
+\newcommand{\setalglineno}[1]{\setcounter{ALC@line}{\numexpr#1-1}}
+
+\AtBeginEnvironment{grammar}{\small}
+\newcommand{\bnf}[1]{\emph{#1}}
+\newcommand{\terminalfont}[1]{\textbf{#1}}
+\newcommand{\terminal}    [1]{\terminalfont{#1}}
+\newcommand{\nonterminal} [1]{\bnf{#1}}
+%\renewcommand{\code}      [1]{\terminalfont{#1}} % choose same for code and grammar terminal symbols
+
+% proofs
+\newcommand{\proofcomment}[1]{\mbox{\small{(#1)}}}
+\newcommand{\symbolcomment}[2]{\stackrel{\mbox{\tiny{(#1)}}}{#2}}
+\newcommand{\lhs}{\mathit{lhs}}
+\newcommand{\rhs}{\mathit{rhs}}
+
+\newcommand{\subscriptobject}[2]{\Ifthenelse{\Empty{#1}}{#2}{{#2}_{#1}}}              % use: \subscriptobject X {} = X, \subscriptobject X a = X_a
+\newcommand{\superscriptobject}[2]{\Ifthenelse{\Empty{#1}}{#2}{{#2}^{#1}}}              % use: \superscriptobject X {} = X, \superscriptobject X a = X^a
+
+\newcommand{\property} {\Phi} % Correctness ('P' is taken)
+
+%%%%%% pushdown symbol
+\newcommand{\pds}        {P} % mathit? A PDS is at a different level than Q, etc.
+
+\newcommand{\pdsshareds}  {Q}
+\newcommand{\sharedstate} {q}
+
+\newcommand{\withempty}[1]{\superscriptobject{\atm 1}{#1}}
+
+\newcommand{\accesses}{\Gamma}
+\newcommand{\access}{\gamma}
+\newcommand{\raccess}{r}
+\newcommand{\waccess}{w}
+\newcommand{\noaccess}{\sqcup}
+
+%%% alphabet
+\newcommand{\alphabet}   {\Sigma}%{\Gamma}
+\newcommand{\word}[1][]     {\omega\Unless{\Empty{#1}}{_{#1}}}
+\newcommand{\emptyword}  {\varepsilon}
+\newcommand{\alphabetwithempty}{\withempty{\alphabet}}
+\newcommand{\alphabetmaxtwo}   {\superscriptobject{\atm 2}{\alphabet}}
+\newcommand{\closure}[1] {\superscriptobject{*}{#1}}
+
+% transitions in PDS
+\newcommand{\pdprogram}      {\Delta}
+\newcommand{\emptystack}    {\varepsilon}
+\newcommand{\pdstranss}[1][] {\subscriptobject{#1}{\pdprogram}}
+\newcommand{\pdstranssymbol}{\rightarrow}
+\newcommand{\pdstrans}[2]{#1 \rightarrow #2}
+
+\newcommand{\pushsymbol}      {\pdstranssymbol}%[+]}
+\newcommand{\popsymbol}       {\pdstranssymbol}%[-]}
+\newcommand{\overwritesymbol} {\pdstranssymbol}%[!]}
+
+\newcommand{\pdsactionsymbol}[1][]{\Ifthenelse{\Empty{#1}}{\rightarrow}{\overset{#1}{\rightarrow}}}
+
+\newcommand{\pdsstate}[1][]{\subscriptobject{#1}{\sharedstate}}
+\newcommand{\pdsalpha}[1][]{\subscriptobject{#1}{\sigma}}
+% \newcommand{\stackcontent}[1][]     {w\Unless{\Empty{#1}}{_{#1}}}
+
+\newcommand{\pdsinitindex}{I}
+\newcommand{\pdsinitobject}[1]{\superscriptobject{\pdsinitindex}{#1}}%{\pdsstate[\pdsinitindex]}
+\newcommand{\pdsinitstate} {\pdsinitobject{\pdsstate}}%{\pdsstate[\pdsinitindex]}
+\newcommand{\pdsinitalpha} {\emptyword}%{\pdsinitobject{\pdsalpha}}%{\pdsalpha [\pdsinitindex]}
+\newcommand{\pdsinitconfig}{\pdsinitobject{c}}
+
+\newcommand{\pdsfinalindex}{F}
+\newcommand{\pdsfinalstate}  {\pdsstate[\pdsfinalindex]}
+\newcommand{\pdsfinalsymbol} {\pdsalpha [\pdsfinalindex]}
+
+% thread states and thread configuration
+\newcommand{\threadstate} [2]{(#1,#2)}
+\newcommand{\threadconfig}[2]{\angles{#1,#2}}
+
+
+% global state and global configuration
+\newcommand{\visiblestate}[2]{\angles{#1|#2}}
+\newcommand{\config}[2]{\angles{#1\!\mid\!#2}} % compare typesetting: $q|x,y$ vs $q\mid x,y$ vs $q\!\mid\!x,y$
+% pushdown store automaton
+\newcommand{\fsa}[1][]     {A\Unless{\Empty{#1}}{_{#1}}}
+\newcommand{\fsastates}    {S}
+\newcommand{\fsastate}[1][] {\subscriptobject{#1}{s}}
+\newcommand{\fsaalphabet}  {\Sigma}
+\newcommand{\fsaalphawithempty}{\withempty{\fsaalphabet}}
+\newcommand{\fsatranss}    {\delta}
+\newcommand{\fsstranss}[1][] {\delta\Unless{\Empty{#1}}{_{#1}}} % transtion relation for finite-state systems used for Z computation
+\newcommand{\fsainitstate} {\pdsinitobject{\fsastate}}
+\newcommand{\fsainitstates}  {I}
+\newcommand{\fsafinalstate} {\superscriptobject{\pdsfinalindex}{\fsastate}}
+\newcommand{\fsafinalstates} {F}
+
+\newcommand{\errors} {E}
+\newcommand{\Post}      {\mathit{Post}}
+
+% "reachable" symbol
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\reached}[1][]  {\mathit{R} \Unless{\Empty{#1}}{_{#1}}}
+\newcommand{\symbreached}[1][] {\mathit{S \Unless{\Empty{#1}}{_{#1}}}}
+\newcommand{\concretize}  {\gamma}
+\newcommand{\symbolize}    {\alpha}
+\newcommand{\topmapsym}   {\mathcal T}
+\newcommand{\topmap}[1]   {\topmapsym(#1)}
+
+\newcommand{\visiblesymbol}{\mathit{T}}
+\renewcommand{\visible}[1][] {\visiblesymbol \Unless{\Empty{#1}}{_{#1}}}
+\newcommand{\fsatranssymbol}[1][]{\overset{#1}{\rightarrowtail}}
+\newcommand{\fsatransclosure}[1][]{\overset{#1}{\rightarrowtail^*}}
+
+% "project a configuration to thread-wise state"
+\newcommand{\threadproject}[2]{{#1}[{#2}]}
+\newcommand{\threadmap} {\mathcal{H}}
+\newcommand{\localmap} {\mathcal{L}}
+
+% a state, and its counter-abstract version
+\newcommand{\statecounter}[2][]{\angles{#1\Unless{\Empty{#1}}{|}#2}} % <s|1,2,0> or <1,2,0>
+
+\newcommand{\schemeOSone}    {$\mbox{\schemeref   {Verifying P using observation sequences}}        \, (\reached[k])$}              % Scheme 1 instantiated with OSone
+\newcommand{\algOSthree}     {$\mbox{\algorithmref{Verifying P using OS3 and stuttering detection}} \, (\visible[k])$}     % Alg. 2 with explicit-state DS
+\newcommand{\algOSthreeSymb} {$\mbox{\algorithmref{Verifying P using OS3 and stuttering detection}} \, (\topmap{\symbreached_k})$} % Alg. 2 with explicit-state DS
+
+\newcommand{\ourtool}{\textsc{Cuba}}
+\newcommand{\ourtoolNoSC}{C{\small UBA}} % when textsc is unavailable or not allowed
+\newcommand{\Ecuba}{\textsc{eCuba}}
+\newcommand{\Scuba}{\textsc{sCuba}}
+
+\newcommand{\upper}{\operatorname{\uparrow}}
+\newcommand{\pc}   {\mathit{pc}}
+\newcommand{\coveredby}{\preceq}
+\newcommand{\covers}{\succeq} 
+
+\newcommand{\permute}[1][] {\pi\Unless{\Empty{#1}}{(#1)}}
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\text{\ding{51}}}%
+\newcommand{\xmark}{\text{\ding{55}}}%
+\newcommand{\YES}{\CIRCLE}
+\newcommand{\Yes}{\cmark}
+\newcommand{\NO}{\Circle}
+\newcommand{\No}{\xmark}
+
+\newcommand{\veq}{\rotatebox{90}{$\,=$}}
+
+\newcommand{\gen}{g}           % a single generator
+\newcommand{\gens}{\mathcal G} % set of generators
+
+\newcommand{\fsm}[1][]     {M\Unless{\Empty{#1}}{_{#1}}}
+\newcommand{\fsmtranssymbol}{\mapsto}
+
+\newcommand{\Seqname} {View}
+
+\newcommand{\abstraction}     [1][] {\alpha \Unless{\Empty{#1}}{({#1})}}
+\newcommand{\concretization} [1][] {\gamma \Unless{\Empty{#1}}{({#1})}}
+
+\newcommand{\seqatm} {\sqsubseteq}
+\newcommand{\seqatl} {\sqsupseteq}
+
+\newcommand{\family}[1]{({#1})_{k=0}^{\infty}}
+
+\newcommand{\observation}[1][]{\mathit O\Unless{\Empty{#1}}{_{#1}}}
+
+\newcommand{\OSone}       {\family{\reached_k}}                % OS1
+\newcommand{\OSthree}    {\family{\visible[k]}}      % OS3
+\newcommand{\OS}        {\family{\observation_k}}
+\newcommand{\OSdomain}        {\mathit D}
+\newcommand{\OSnotation} {\mathcal O}
+\newcommand{\OSthreesymb}{\family{\topmap{\symbreached_k}}} % OS3
+\newcommand{\OSgeneric}[1]        {\family{\Ifthenelse{\Empty{#1}}{\reached_k}{{#1}(\reached_k)}}}
+
+\newcommand{\highlightcolor}{gray} % used in the text!
+\newcommand{\hlight}[1]{\setlength{\fboxsep}{2.0pt}\colorbox{\highlightcolor!30}{#1}} % red
+
+\newcommand{\Image}{\textsf{Image}}
+\newcommand{\Rename}{\textsf{Rename}}
+\newcommand{\Anonymize}{\textsf{Anonymize}}
+
+\newcommand{\zerowrite}{\mathcal{W}_0}
+\newcommand{\onewrite}{\mathcal{W}_1}
+
+\newcommand{\Saturate}{\textsf{Saturate}}
+
+\newcommand{\cubaWebsite}{\url{http://www.ccs.neu.edu/home/lpzun/cuba/}}
+
+\newcommand*{\cubabox}[1]{%
+  \framebox{\raisebox{0pt}[0.15\baselineskip][0.01\baselineskip]{%
+    \hbox to 0.1cm{\hss#1\hss}}}}
+
+\newcommand{\JMoped}{\textsc{JMoped}}
+\newcommand{\Getafix}{\textsc{Getafix}}
+
+\renewcommand{\P}{\texttt{P}}

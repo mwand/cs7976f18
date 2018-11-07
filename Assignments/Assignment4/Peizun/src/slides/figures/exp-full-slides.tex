@@ -1,0 +1,59 @@
+\centering
+\renewcommand{\arraystretch}{1.3}
+\resizebox{6.8cm}{!}{
+  \noindent
+  \begin{tabular}{@{}lcc@{}c@{}lr@{}}
+    \hline
+    \multirow{2}{*}{ID/Program} & \multicolumn{2}{c}{Prog. Features} & \multirow{2}{*}{\ \ } & \multicolumn{2}{c}{$\family{T_k}$} \\
+    \cline{2-3}\cline{5-6}\noalign{\smallskip}
+    & \multicolumn{1}{@{}c@{}}{~$\mathit{Thread}$~} 
+    & \multicolumn{1}{r}{$\mathit{Safe}?$} 
+    &                                                                                 
+    & \multicolumn{1}{l}{$k_{\mathit{max}}$~}
+    & \multicolumn{1}{r@{}}{~$Time~(sec.)$~}\\   
+    \hline
+    \multirow{3}{*}{\textsc{1/Bluetooth-1\hspace{1mm}}}
+                                              & $\recur 1 + \recur 1$ & $\No$ & & 6~(4) &0.26 \\
+                                              & $\recur 1 + \recur 2$ & $\No$ & & 6~(3) &2.32 \\
+                                              & $\recur 2 + \recur 1$ & $\No$ & & 7~(4) &12.76 \\
+    \hline
+    \multirow{3}{*}{\textsc{2/Bluetooth-2}}   & $\recur 1 + \recur 1$ & $\No$ & & 6~(4) &0.53 \\
+                                              & $\recur 1 + \recur 2$ & $\No$ & & 6~(3) &4.39 \\
+                                              & $\recur 2 + \recur 1$ & $\No$ & & 7~(4) &14.21\\
+    \hline
+    \multirow{3}{*}{\textsc{3/Bluetooth-3}}   & $\recur 1 + \recur 1$ & $\Yes$ & & 6 &0.47 \\
+                                              & $\recur 1 + \recur 2$ & $\Yes$ & & 6 &4.71 \\
+                                              & $\recur 2 + \recur 1$ & $\Yes$ & & 7 &14.46 \\
+     & & & & & \\
+    \hline
+  \end{tabular}}
+\hfill
+\resizebox{6.8cm}{!}{
+  \noindent 
+  \begin{tabular}{@{}llcc@{}c@{}r@{}crrr@{}}
+    \hline
+    \multirow{2}{*}{ID/Program} & \multicolumn{2}{c}{Prog. Features} & \multirow{2}{*}{\ \ } & \multicolumn{2}{c}{$\family{T_k}$} \\
+    \cline{2-3}\cline{5-6}\noalign{\smallskip}
+    & \multicolumn{1}{@{}c@{}}{~$\mathit{Thread}$~} 
+    & \multicolumn{1}{r}{$\mathit{Safe}?$} 
+    &                                                                                 
+    & \multicolumn{1}{l}{$k_{\mathit{max}}$~}
+    & \multicolumn{1}{r@{}}{~$Time~(sec.)$~} \\      
+    \hline
+    \multirow{3}{*}{\textsc{4/BST-Insert}}   & $\recur 1 + \recur 1$   & $\Yes$ & & 2 & 1.17 \\
+                                             & $\recur 2 + \recur 1$   & $\Yes$ & & 3 & 15.84 \\
+                                             & $\recur 2 + \recur 2$   & $\Yes$ & & 4 & 45.21 \\
+    \hline
+    \multirow{1}{*}{\textsc{5/FileCrawler}} & $\nonrecur 1+\recur 2$  & $\Yes$ & & 6 & 0.03   \\
+    \hline
+    \multirow{1}{*}{\textsc{6/K-Induction}} & $\recur 1+\recur 1$     & $\Yes$ & & 3 & 0.23  \\
+    \hline
+    \multirow{1}{*}{\textsc{7/Proc-2}}      & $\recur 2+\nonrecur 2$  & $\Yes$ & & 3 & 0.52  \\
+    \hline
+    \multirow{2}{*}{\textsc{8/Stefan-1}}  & $\recur 2$  & $\Yes$ & & $2$ & $1.01$   \\
+                                          & $\recur 4$  & $\Yes$ & & $4$ & $16.36$  \\
+                                          & $\recur 8$  & $-$    & & $\atl 8$    & $-$  \\
+    \hline
+    \multirow{1}{*}{\textsc{9/Dekker}}    & $\nonrecur 2$ & $\Yes$ & & 6 & 0.21  \\
+    \hline
+  \end{tabular}}                               
